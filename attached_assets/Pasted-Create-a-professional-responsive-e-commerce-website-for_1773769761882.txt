@@ -1,0 +1,55 @@
+Create a professional, responsive e-commerce website for a mobile store. The website should be clean, modern, and user-friendly. Follow these specifications:
+
+Project Structure:
+
+Create a main folder for the project.
+
+Inside the project, create an images folder. Within images, create subfolders for each brand like Samsung, Oppo, Xiaomi, etc. Place all product images in their respective brand folders. Images should be named including the model, e.g., galaxys25fe.jpg.
+
+Create a src folder for JavaScript files and a main products.js file inside it. In products.js, include a placeholder comment: // Products will be listed here. The developer will later add product details such as name, brand, price, image path, and specs.
+
+Include viewdetails.html for product detail pages. Include a clean layout with:
+
+Large product image on one side
+
+Product name, price, specifications table, and a WhatsApp "Buy Now" button on the other side
+
+The design should not include any placeholder text like “Contact for price”, only the real price should be displayed
+
+Create a style.css file to handle styling. Design should be visually appealing, professional, and responsive for mobile and desktop. Use modern colors, shadows, and hover effects.
+
+Include main.js in src to handle loading product details dynamically based on URL parameters.
+
+Languages and Tools:
+
+Use HTML for structure, CSS for styling, and JavaScript for dynamic behavior.
+
+The project should not require any backend initially. It should be fully front-end with static files and JavaScript to render products and their details.
+
+Ensure paths to images are correct, e.g., images/Samsung/galaxys25fe.jpg.
+
+Functional Requirements:
+
+Clicking a product should open viewdetails.html with that product’s details.
+
+Product details include: product image, name, price, brand, specs table, and WhatsApp “Buy Now” button.
+
+WhatsApp button should link dynamically using product name, e.g., https://wa.me/923001234567?text=Hi I want to buy [PRODUCT NAME].
+
+Design should be clean, minimal, and professional, similar to top e-commerce sites.
+
+Client Information:
+
+Store Name: “Shah Mobile”
+
+Store Contact: WhatsApp only
+
+Store Logo can be optional but place it in the header if available
+
+Output:
+
+Provide all files in their respective folders (images, src, root HTML and CSS) ready to open in browser or deploy on Replit.
+
+Do not include actual product listings yet, leave placeholders in products.js.
+
+Make the website fully responsive, visually appealing, and functional with placeholders.

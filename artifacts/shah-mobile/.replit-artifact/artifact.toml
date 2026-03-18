@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "Shah Mobile Store"
+version = "1.0.0"
+id = "artifacts/shah-mobile"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+localPort = 25582
+name = "web"
+paths = ["/"]
+
+[services.development]
+run = "pnpm --filter @workspace/shah-mobile run dev"
+
+[services.env]
+PORT = "25582"
+BASE_PATH = "/"
+
+[services.production]
+build = ["pnpm", "--filter", "@workspace/shah-mobile", "run", "build"]
+publicDir = "artifacts/shah-mobile/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
