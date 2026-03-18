@@ -2,7 +2,7 @@ import { useRoute, Link } from "wouter";
 import { ArrowLeft, Cpu, HardDrive, Camera, Battery, Maximize, Settings, CheckCircle2 } from "lucide-react";
 import { Layout } from "@/components/layout";
 import { useProduct } from "@/hooks/use-products";
-import { formatPKR } from "@/data/products";
+import { formatPKR, productDetailedSpecs } from "@/data/products";
 import { motion } from "framer-motion";
 
 export default function ProductDetail() {
@@ -139,6 +139,67 @@ export default function ProductDetail() {
                 </motion.div>
               </div>
             </div>
+
+            {/* ── Full Specifications Table ── */}
+            {(() => {
+              const ds = productDetailedSpecs[product.id];
+              if (!ds) return null;
+
+              const rows: { label: string; value: string }[] = [
+                { label: "Dimensions",          value: ds.dimensions },
+                { label: "Weight",              value: ds.weight },
+                { label: "Display Type",        value: ds.displayType },
+                { label: "Screen Size",         value: ds.screenSize },
+                { label: "Refresh Rate",        value: ds.refreshRate },
+                { label: "Screen Resolution",   value: ds.resolution },
+                { label: "Processor (CPU)",     value: ds.processor },
+                { label: "GPU",                 value: ds.gpu },
+                { label: "RAM",                 value: product.specs.ram },
+                { label: "Internal Storage",    value: product.specs.storage },
+                { label: "Expandable Storage",  value: ds.expandableStorage },
+                { label: "Rear Camera",         value: ds.rearCamera },
+                { label: "Front Camera",        value: ds.frontCamera },
+                { label: "Battery Capacity",    value: product.specs.battery },
+                { label: "Charging Speed",      value: ds.chargingSpeed },
+                { label: "Operating System",    value: product.specs.os },
+                { label: "Network",             value: ds.network },
+                { label: "Wi-Fi",               value: ds.wifi },
+                { label: "Bluetooth",           value: ds.bluetooth },
+                { label: "USB Port",            value: ds.usb },
+                { label: "SIM Card",            value: ds.simType },
+                { label: "Fingerprint",         value: ds.fingerprint },
+                { label: "Water Resistance",    value: ds.waterResistance },
+              ];
+
+              return (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: 0.4 }}
+                  className="mt-8 pt-8 border-t border-border"
+                >
+                  <h3 className="font-display text-xl font-bold text-foreground mb-5">
+                    Full Specifications
+                  </h3>
+                  <div className="w-full rounded-2xl border border-border/60 overflow-hidden">
+                    {rows.map((row, i) => (
+                      <div
+                        key={i}
+                        className={`flex items-stretch min-h-[44px] ${i % 2 === 0 ? "bg-secondary/25" : "bg-white"}`}
+                      >
+                        <div className="w-2/5 px-4 py-3 flex items-center">
+                          <span className="text-sm font-semibold text-foreground/70">{row.label}</span>
+                        </div>
+                        <div className="w-px bg-border/50 flex-shrink-0" />
+                        <div className="flex-1 px-4 py-3 flex items-center">
+                          <span className="text-sm text-foreground">{row.value}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              );
+            })()}
           </div>
         </div>
       </div>

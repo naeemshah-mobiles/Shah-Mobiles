@@ -844,6 +844,906 @@ export const products: Product[] = [
   },
 ];
 
+// ─── DETAILED SPECIFICATIONS ────────────────────────────────────────────────
+
+export interface DetailedSpecs {
+  dimensions: string;
+  weight: string;
+  displayType: string;
+  screenSize: string;
+  refreshRate: string;
+  resolution: string;
+  processor: string;
+  gpu: string;
+  expandableStorage: string;
+  rearCamera: string;
+  frontCamera: string;
+  chargingSpeed: string;
+  network: string;
+  wifi: string;
+  bluetooth: string;
+  usb: string;
+  simType: string;
+  fingerprint: string;
+  waterResistance: string;
+}
+
+// ── Model-level spec objects (shared by variants) ──
+
+const sA07: DetailedSpecs = {
+  dimensions: "164.4 × 76.3 × 9.1 mm", weight: "193g",
+  displayType: "PLS LCD", screenSize: '6.7"', refreshRate: "60Hz", resolution: "720 × 1600 (HD+)",
+  processor: "Samsung Exynos 850 (8nm)", gpu: "Mali-G52",
+  expandableStorage: "Yes (microSD up to 1TB)",
+  rearCamera: "50MP (f/1.8) + 2MP Depth", frontCamera: "5MP",
+  chargingSpeed: "15W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 5 (802.11ac)", bluetooth: "5.0",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "Side-mounted", waterResistance: "No",
+};
+
+const sA17: DetailedSpecs = {
+  dimensions: "166.5 × 77.2 × 8.0 mm", weight: "195g",
+  displayType: "Super AMOLED", screenSize: '6.7"', refreshRate: "90Hz", resolution: "1080 × 2400 (FHD+)",
+  processor: "MediaTek Helio G99 (6nm)", gpu: "Mali-G57 MC2",
+  expandableStorage: "Yes (microSD up to 1TB)",
+  rearCamera: "50MP + 5MP + 2MP", frontCamera: "13MP",
+  chargingSpeed: "25W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 6 (802.11ax)", bluetooth: "5.3",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "Side-mounted", waterResistance: "No",
+};
+
+const sA26: DetailedSpecs = {
+  dimensions: "163.1 × 77.9 × 7.5 mm", weight: "185g",
+  displayType: "Super AMOLED", screenSize: '6.7"', refreshRate: "120Hz", resolution: "1080 × 2340 (FHD+)",
+  processor: "Samsung Exynos 1380 (5nm)", gpu: "Mali-G68 MP5",
+  expandableStorage: "Yes (microSD up to 1TB)",
+  rearCamera: "50MP + 8MP Ultra-wide + 2MP Depth", frontCamera: "12MP",
+  chargingSpeed: "25W Wired",
+  network: "5G / 4G LTE", wifi: "Wi-Fi 6 (802.11ax)", bluetooth: "5.3",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano + eSIM)",
+  fingerprint: "In-display Optical", waterResistance: "IP67",
+};
+
+const sA36: DetailedSpecs = {
+  dimensions: "163.5 × 77.9 × 7.5 mm", weight: "192g",
+  displayType: "Super AMOLED", screenSize: '6.7"', refreshRate: "120Hz", resolution: "1080 × 2340 (FHD+)",
+  processor: "Qualcomm Snapdragon 6 Gen 3 (4nm)", gpu: "Adreno 710",
+  expandableStorage: "Yes (microSD up to 1TB)",
+  rearCamera: "50MP + 8MP Ultra-wide + 5MP", frontCamera: "12MP",
+  chargingSpeed: "45W Wired",
+  network: "5G / 4G LTE", wifi: "Wi-Fi 6 (802.11ax)", bluetooth: "5.3",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano + eSIM)",
+  fingerprint: "In-display Optical", waterResistance: "IP67",
+};
+
+const sA56: DetailedSpecs = {
+  dimensions: "164.2 × 78.1 × 7.3 mm", weight: "197g",
+  displayType: "Super AMOLED", screenSize: '6.7"', refreshRate: "120Hz", resolution: "1080 × 2340 (FHD+)",
+  processor: "Samsung Exynos 1580 (4nm)", gpu: "Xclipse 540",
+  expandableStorage: "Yes (microSD up to 1TB)",
+  rearCamera: "50MP + 12MP Ultra-wide + 5MP", frontCamera: "12MP",
+  chargingSpeed: "45W Wired",
+  network: "5G / 4G LTE", wifi: "Wi-Fi 6E (802.11ax)", bluetooth: "5.3",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano + eSIM)",
+  fingerprint: "In-display Optical", waterResistance: "IP67",
+};
+
+const sS25FE: DetailedSpecs = {
+  dimensions: "162.2 × 77.6 × 7.9 mm", weight: "190g",
+  displayType: "Dynamic AMOLED 2X", screenSize: '6.7"', refreshRate: "120Hz Adaptive", resolution: "1080 × 2340 (FHD+)",
+  processor: "Samsung Exynos 2500 (3nm)", gpu: "Xclipse 950",
+  expandableStorage: "No",
+  rearCamera: "50MP + 12MP Ultra-wide + 8MP Telephoto (3x)", frontCamera: "10MP",
+  chargingSpeed: "45W Wired, 15W Wireless",
+  network: "5G / 4G LTE", wifi: "Wi-Fi 7 (802.11be)", bluetooth: "5.4",
+  usb: "USB Type-C 3.2", simType: "Dual SIM (Nano + eSIM)",
+  fingerprint: "Ultrasonic In-display", waterResistance: "IP68",
+};
+
+const sS25Ultra: DetailedSpecs = {
+  dimensions: "162.8 × 77.6 × 8.2 mm", weight: "218g",
+  displayType: "Dynamic AMOLED 2X", screenSize: '6.9"', refreshRate: "120Hz Adaptive (1–120Hz)", resolution: "3088 × 1440 (QHD+)",
+  processor: "Qualcomm Snapdragon 8 Elite for Galaxy (3nm)", gpu: "Adreno 830",
+  expandableStorage: "No",
+  rearCamera: "200MP (f/1.7, OIS) + 12MP Ultra-wide + 10MP Periscope (10x) + 10MP (3x)", frontCamera: "12MP (f/2.2)",
+  chargingSpeed: "45W Wired, 15W Wireless, 4.5W Reverse Wireless",
+  network: "5G (Sub-6GHz + mmWave)", wifi: "Wi-Fi 7 (802.11be)", bluetooth: "5.4",
+  usb: "USB Type-C 3.2", simType: "Dual SIM (Nano + eSIM)",
+  fingerprint: "Ultrasonic In-display", waterResistance: "IP68",
+};
+
+const sS26: DetailedSpecs = {
+  dimensions: "147.8 × 70.7 × 7.2 mm", weight: "162g",
+  displayType: "Dynamic AMOLED 2X", screenSize: '6.3"', refreshRate: "120Hz Adaptive (1–120Hz)", resolution: "2340 × 1080 (FHD+)",
+  processor: "Qualcomm Snapdragon 8 Elite for Galaxy (3nm)", gpu: "Adreno 830",
+  expandableStorage: "No",
+  rearCamera: "50MP (f/1.8, OIS) + 12MP Ultra-wide + 10MP Telephoto (3x)", frontCamera: "12MP",
+  chargingSpeed: "25W Wired, 15W Wireless",
+  network: "5G (Sub-6GHz + mmWave)", wifi: "Wi-Fi 7 (802.11be)", bluetooth: "5.4",
+  usb: "USB Type-C 3.2", simType: "Dual SIM (Nano + eSIM)",
+  fingerprint: "Ultrasonic In-display", waterResistance: "IP68",
+};
+
+const sS26Plus: DetailedSpecs = {
+  dimensions: "158.0 × 76.0 × 7.3 mm", weight: "193g",
+  displayType: "Dynamic AMOLED 2X", screenSize: '6.7"', refreshRate: "120Hz Adaptive (1–120Hz)", resolution: "2340 × 1080 (FHD+)",
+  processor: "Qualcomm Snapdragon 8 Elite for Galaxy (3nm)", gpu: "Adreno 830",
+  expandableStorage: "No",
+  rearCamera: "50MP (f/1.8, OIS) + 12MP Ultra-wide + 10MP Telephoto (3x)", frontCamera: "12MP",
+  chargingSpeed: "45W Wired, 15W Wireless",
+  network: "5G (Sub-6GHz + mmWave)", wifi: "Wi-Fi 7 (802.11be)", bluetooth: "5.4",
+  usb: "USB Type-C 3.2", simType: "Dual SIM (Nano + eSIM)",
+  fingerprint: "Ultrasonic In-display", waterResistance: "IP68",
+};
+
+// S26 Ultra — based on Daraz listing (similar architecture to S24 Ultra)
+const sS26Ultra: DetailedSpecs = {
+  dimensions: "162.3 × 79.1 × 8.6 mm", weight: "234g",
+  displayType: "Dynamic AMOLED 2X", screenSize: '6.9"', refreshRate: "120Hz Adaptive (1–120Hz)", resolution: "3088 × 1440 (~500 ppi)",
+  processor: "Qualcomm Snapdragon 8 Elite for Galaxy (3nm)", gpu: "Adreno 830",
+  expandableStorage: "No",
+  rearCamera: "200MP (f/1.7, OIS, Laser AF) + 12MP Ultra-wide (f/2.2, 120°) + 10MP Periscope (f/4.9, 10x Optical) + 10MP (f/2.4, 3x Optical)", frontCamera: "12MP (f/2.2, 90° FOV)",
+  chargingSpeed: "45W Wired, 15W Wireless, 4.5W Reverse Wireless",
+  network: "5G (Sub-6GHz + mmWave)", wifi: "Wi-Fi 7 (802.11be)", bluetooth: "5.4",
+  usb: "USB Type-C 3.2", simType: "Dual SIM (Nano-SIM + eSIM)",
+  fingerprint: "Ultrasonic In-display", waterResistance: "IP68",
+};
+
+// ── Vivo ──
+
+const vXFold5: DetailedSpecs = {
+  dimensions: "156.7 × 73.9 × 4.7 mm (unfolded)", weight: "229g",
+  displayType: "Foldable AMOLED (Inner 8.03\" + Cover 6.53\")", screenSize: '8.03" / 6.53"', refreshRate: "120Hz", resolution: "2160 × 1916 / 1080 × 2748",
+  processor: "Qualcomm Snapdragon 8 Gen 3 (4nm)", gpu: "Adreno 750",
+  expandableStorage: "No",
+  rearCamera: "50MP (f/1.57, OIS) + 50MP Ultra-wide + 50MP Periscope (3.7x)", frontCamera: "20MP + 20MP (Inner)",
+  chargingSpeed: "80W Wired, 30W Wireless",
+  network: "5G / 4G LTE", wifi: "Wi-Fi 7 (802.11be)", bluetooth: "5.4",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano + eSIM)",
+  fingerprint: "Side-mounted", waterResistance: "IP54",
+};
+
+const vX300Pro: DetailedSpecs = {
+  dimensions: "163.4 × 76.0 × 8.3 mm", weight: "228g",
+  displayType: "AMOLED LTPO", screenSize: '6.78"', refreshRate: "120Hz Adaptive", resolution: "1260 × 2800",
+  processor: "MediaTek Dimensity 9400 (3nm)", gpu: "Immortalis-G925",
+  expandableStorage: "No",
+  rearCamera: "200MP Periscope (5.5x, OIS) + 50MP Ultra-wide + 50MP Portrait", frontCamera: "50MP",
+  chargingSpeed: "90W Wired, 30W Wireless",
+  network: "5G / 4G LTE", wifi: "Wi-Fi 7 (802.11be)", bluetooth: "5.4",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano + eSIM)",
+  fingerprint: "In-display Optical", waterResistance: "IP69",
+};
+
+const vX200FE: DetailedSpecs = {
+  dimensions: "152.3 × 72.3 × 8.5 mm", weight: "187g",
+  displayType: "BOE AMOLED", screenSize: '6.31"', refreshRate: "120Hz", resolution: "1440 × 3216",
+  processor: "MediaTek Dimensity 9300+ (4nm)", gpu: "Immortalis-G720",
+  expandableStorage: "No",
+  rearCamera: "50MP (Zeiss, OIS) + 50MP Ultra-wide + 8MP", frontCamera: "50MP",
+  chargingSpeed: "80W Wired, 30W Wireless",
+  network: "5G / 4G LTE", wifi: "Wi-Fi 6E (802.11ax)", bluetooth: "5.4",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano + eSIM)",
+  fingerprint: "In-display Optical", waterResistance: "IP64",
+};
+
+const vV70: DetailedSpecs = {
+  dimensions: "161.8 × 76.2 × 7.6 mm", weight: "185g",
+  displayType: "AMOLED", screenSize: '6.59"', refreshRate: "120Hz", resolution: "1080 × 2408",
+  processor: "MediaTek Dimensity 7300 (4nm)", gpu: "Mali-G615 MC2",
+  expandableStorage: "No",
+  rearCamera: "50MP (Sony IMX882, OIS) + 50MP Portrait + 8MP Ultra-wide", frontCamera: "50MP",
+  chargingSpeed: "80W Wired, 30W Wireless",
+  network: "4G LTE", wifi: "Wi-Fi 6 (802.11ax)", bluetooth: "5.4",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "In-display Optical", waterResistance: "IP64",
+};
+
+const vV60Lite5G: DetailedSpecs = {
+  dimensions: "165.0 × 76.4 × 7.7 mm", weight: "191g",
+  displayType: "AMOLED", screenSize: '6.77"', refreshRate: "120Hz", resolution: "1080 × 2408",
+  processor: "MediaTek Dimensity 6300 (4nm)", gpu: "Mali-G57 MC2",
+  expandableStorage: "No",
+  rearCamera: "50MP + 8MP Ultra-wide", frontCamera: "32MP",
+  chargingSpeed: "44W Wired",
+  network: "5G / 4G LTE", wifi: "Wi-Fi 5 (802.11ac)", bluetooth: "5.0",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "In-display Optical", waterResistance: "No",
+};
+
+const vV60Lite: DetailedSpecs = {
+  dimensions: "165.0 × 76.4 × 7.7 mm", weight: "189g",
+  displayType: "AMOLED", screenSize: '6.77"', refreshRate: "120Hz", resolution: "1080 × 2408",
+  processor: "MediaTek Helio G99 (6nm)", gpu: "Mali-G57 MC2",
+  expandableStorage: "No",
+  rearCamera: "50MP + 8MP Ultra-wide", frontCamera: "32MP",
+  chargingSpeed: "44W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 5 (802.11ac)", bluetooth: "5.0",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "In-display Optical", waterResistance: "No",
+};
+
+const vY400: DetailedSpecs = {
+  dimensions: "164.6 × 76.2 × 8.0 mm", weight: "185g",
+  displayType: "IPS LCD", screenSize: '6.67"', refreshRate: "120Hz", resolution: "1080 × 2400",
+  processor: "Qualcomm Snapdragon 4 Gen 2 (4nm)", gpu: "Adreno 613",
+  expandableStorage: "Yes (microSD up to 1TB)",
+  rearCamera: "50MP + 2MP Depth", frontCamera: "8MP",
+  chargingSpeed: "44W Wired",
+  network: "5G / 4G LTE", wifi: "Wi-Fi 6 (802.11ax)", bluetooth: "5.3",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "Side-mounted", waterResistance: "No",
+};
+
+const vY29: DetailedSpecs = {
+  dimensions: "164.4 × 75.7 × 8.3 mm", weight: "185g",
+  displayType: "IPS LCD", screenSize: '6.68"', refreshRate: "90Hz", resolution: "1080 × 2400",
+  processor: "MediaTek Helio G91 (12nm)", gpu: "Mali-G57 MC2",
+  expandableStorage: "Yes (microSD up to 1TB)",
+  rearCamera: "50MP + 2MP Depth", frontCamera: "8MP",
+  chargingSpeed: "15W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 5 (802.11ac)", bluetooth: "5.1",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "Side-mounted", waterResistance: "No",
+};
+
+const vY21d: DetailedSpecs = {
+  dimensions: "164.4 × 75.7 × 8.3 mm", weight: "185g",
+  displayType: "IPS LCD", screenSize: '6.68"', refreshRate: "90Hz", resolution: "1080 × 2400",
+  processor: "MediaTek Helio G91 (12nm)", gpu: "Mali-G57 MC2",
+  expandableStorage: "Yes (microSD up to 1TB)",
+  rearCamera: "50MP", frontCamera: "5MP",
+  chargingSpeed: "15W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 5 (802.11ac)", bluetooth: "5.0",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "Side-mounted", waterResistance: "No",
+};
+
+const vY05: DetailedSpecs = {
+  dimensions: "167.4 × 77.3 × 8.5 mm", weight: "193g",
+  displayType: "IPS LCD", screenSize: '6.74"', refreshRate: "90Hz", resolution: "720 × 1600 (HD+)",
+  processor: "MediaTek Helio G36 (12nm)", gpu: "PowerVR GE8320",
+  expandableStorage: "Yes (microSD up to 1TB)",
+  rearCamera: "13MP / 8MP (varies by model)", frontCamera: "5MP",
+  chargingSpeed: "10W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 4 (802.11n)", bluetooth: "5.0",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "Side-mounted", waterResistance: "No",
+};
+
+const vY04: DetailedSpecs = {
+  dimensions: "165.8 × 76.9 × 8.5 mm", weight: "190g",
+  displayType: "IPS LCD", screenSize: '6.74"', refreshRate: "90Hz", resolution: "720 × 1600 (HD+)",
+  processor: "MediaTek Helio G36 (12nm)", gpu: "PowerVR GE8320",
+  expandableStorage: "Yes (microSD up to 1TB)",
+  rearCamera: "13MP", frontCamera: "5MP",
+  chargingSpeed: "10W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 4 (802.11n)", bluetooth: "5.0",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "Side-mounted", waterResistance: "No",
+};
+
+// ── Redmi ──
+
+const rA3X: DetailedSpecs = {
+  dimensions: "168.4 × 76.4 × 8.3 mm", weight: "186g",
+  displayType: "IPS LCD", screenSize: '6.71"', refreshRate: "90Hz", resolution: "720 × 1600 (HD+)",
+  processor: "MediaTek Helio G36 (12nm)", gpu: "PowerVR GE8320",
+  expandableStorage: "Yes (microSD up to 1TB)",
+  rearCamera: "8MP", frontCamera: "5MP",
+  chargingSpeed: "10W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 4 (802.11n)", bluetooth: "5.3",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "Side-mounted", waterResistance: "No",
+};
+
+const rA5: DetailedSpecs = {
+  dimensions: "168.7 × 77.6 × 8.3 mm", weight: "198g",
+  displayType: "IPS LCD", screenSize: '6.88"', refreshRate: "90Hz", resolution: "720 × 1640 (HD+)",
+  processor: "Unisoc T7250 (12nm)", gpu: "IMG BXE-4-32",
+  expandableStorage: "Yes (microSD up to 1TB)",
+  rearCamera: "32MP", frontCamera: "8MP",
+  chargingSpeed: "10W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 4 (802.11n)", bluetooth: "5.0",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "Side-mounted", waterResistance: "No",
+};
+
+const r14C: DetailedSpecs = {
+  dimensions: "168.0 × 77.8 × 8.2 mm", weight: "204g",
+  displayType: "IPS LCD", screenSize: '6.88"', refreshRate: "120Hz", resolution: "720 × 1640 (HD+)",
+  processor: "MediaTek Helio G85 (12nm)", gpu: "Mali-G52 MC2",
+  expandableStorage: "Yes (microSD up to 1TB)",
+  rearCamera: "50MP + Depth sensor", frontCamera: "13MP",
+  chargingSpeed: "18W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 5 (802.11ac)", bluetooth: "5.3",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "Side-mounted", waterResistance: "No",
+};
+
+const r15C: DetailedSpecs = {
+  dimensions: "168.7 × 77.6 × 8.3 mm", weight: "210g",
+  displayType: "IPS LCD", screenSize: '6.9"', refreshRate: "120Hz", resolution: "720 × 1640 (HD+)",
+  processor: "MediaTek Helio G91 Ultra (12nm)", gpu: "Mali-G57 MC2",
+  expandableStorage: "Yes (microSD up to 1TB)",
+  rearCamera: "50MP + AI Lens", frontCamera: "8MP",
+  chargingSpeed: "18W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 5 (802.11ac)", bluetooth: "5.3",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "Side-mounted", waterResistance: "No",
+};
+
+const r13: DetailedSpecs = {
+  dimensions: "168.6 × 76.3 × 8.1 mm", weight: "205g",
+  displayType: "IPS LCD", screenSize: '6.79"', refreshRate: "90Hz", resolution: "1080 × 2460 (FHD+)",
+  processor: "MediaTek Helio G91 (12nm)", gpu: "Mali-G57 MC2",
+  expandableStorage: "Yes (microSD up to 1TB)",
+  rearCamera: "108MP + 2MP Depth", frontCamera: "13MP",
+  chargingSpeed: "18W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 5 (802.11ac)", bluetooth: "5.3",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "Side-mounted", waterResistance: "No",
+};
+
+const r15: DetailedSpecs = {
+  dimensions: "168.7 × 76.0 × 8.3 mm", weight: "218g",
+  displayType: "AMOLED", screenSize: '6.9"', refreshRate: "90Hz", resolution: "1080 × 2400 (FHD+)",
+  processor: "MediaTek Dimensity 7300X (4nm)", gpu: "Mali-G615 MC2",
+  expandableStorage: "Yes (microSD up to 1TB)",
+  rearCamera: "50MP (OIS)", frontCamera: "8MP",
+  chargingSpeed: "45W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 6 (802.11ax)", bluetooth: "5.4",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "Side-mounted", waterResistance: "No",
+};
+
+const rNote14: DetailedSpecs = {
+  dimensions: "162.3 × 75.3 × 7.9 mm", weight: "187g",
+  displayType: "AMOLED", screenSize: '6.67"', refreshRate: "120Hz", resolution: "1080 × 2400 (FHD+)",
+  processor: "Qualcomm Snapdragon 685 (6nm)", gpu: "Adreno 610",
+  expandableStorage: "Yes (microSD up to 1TB)",
+  rearCamera: "108MP + 2MP Depth + 2MP Macro", frontCamera: "20MP",
+  chargingSpeed: "33W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 5 (802.11ac)", bluetooth: "5.1",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "Side-mounted", waterResistance: "IP54",
+};
+
+const rNote14Pro: DetailedSpecs = {
+  dimensions: "162.3 × 74.3 × 8.0 mm", weight: "189g",
+  displayType: "AMOLED", screenSize: '6.67"', refreshRate: "120Hz", resolution: "1080 × 2400 (FHD+)",
+  processor: "MediaTek Dimensity 7200 Ultra (4nm)", gpu: "Mali-G610 MC4",
+  expandableStorage: "Yes (microSD up to 1TB)",
+  rearCamera: "200MP (OIS) + 8MP Ultra-wide + 2MP Macro", frontCamera: "32MP",
+  chargingSpeed: "45W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 6 (802.11ax)", bluetooth: "5.4",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "Side-mounted", waterResistance: "IP54",
+};
+
+const rNote14ProPlus: DetailedSpecs = {
+  dimensions: "161.4 × 74.3 × 8.5 mm", weight: "193g",
+  displayType: "AMOLED", screenSize: '6.67"', refreshRate: "120Hz", resolution: "1220 × 2712",
+  processor: "MediaTek Dimensity 9200+ (4nm)", gpu: "Immortalis-G715 MC11",
+  expandableStorage: "No",
+  rearCamera: "200MP (OIS) + 8MP Ultra-wide + 2MP Macro", frontCamera: "20MP",
+  chargingSpeed: "90W Wired, 50W Wireless",
+  network: "5G / 4G LTE", wifi: "Wi-Fi 6E (802.11ax)", bluetooth: "5.4",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "In-display Optical", waterResistance: "IP54",
+};
+
+// ── Xiaomi ──
+
+const x15T: DetailedSpecs = {
+  dimensions: "160.5 × 74.9 × 7.8 mm", weight: "193g",
+  displayType: "AMOLED LTPO", screenSize: '6.83"', refreshRate: "144Hz Adaptive", resolution: "1220 × 2712",
+  processor: "MediaTek Dimensity 8300 Ultra (4nm)", gpu: "Mali-G615 MC6",
+  expandableStorage: "No",
+  rearCamera: "50MP (OIS) + 50MP Ultrawide + 12MP Periscope Telephoto (5x)", frontCamera: "32MP",
+  chargingSpeed: "67W Wired, 50W Wireless",
+  network: "5G / 4G LTE", wifi: "Wi-Fi 7 (802.11be)", bluetooth: "5.4",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano + eSIM)",
+  fingerprint: "In-display Optical", waterResistance: "IP68",
+};
+
+const x15TPro: DetailedSpecs = {
+  dimensions: "160.5 × 74.9 × 7.8 mm", weight: "210g",
+  displayType: "AMOLED LTPO", screenSize: '6.83"', refreshRate: "144Hz Adaptive", resolution: "1220 × 2712",
+  processor: "Qualcomm Snapdragon 8 Gen 3 (4nm)", gpu: "Adreno 750",
+  expandableStorage: "No",
+  rearCamera: "50MP (OIS, Leica) + 50MP Ultrawide + 12MP Periscope (5x)", frontCamera: "32MP",
+  chargingSpeed: "90W Wired, 50W Wireless",
+  network: "5G / 4G LTE", wifi: "Wi-Fi 7 (802.11be)", bluetooth: "5.4",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano + eSIM)",
+  fingerprint: "In-display Optical", waterResistance: "IP68",
+};
+
+const x15: DetailedSpecs = {
+  dimensions: "152.4 × 72.6 × 8.08 mm", weight: "188g",
+  displayType: "AMOLED LTPO", screenSize: '6.36"', refreshRate: "120Hz Adaptive", resolution: "1200 × 2670",
+  processor: "Qualcomm Snapdragon 8 Elite (3nm)", gpu: "Adreno 830",
+  expandableStorage: "No",
+  rearCamera: "50MP (OIS, Leica) + 50MP Ultrawide + 50MP Telephoto (2.5x)", frontCamera: "32MP",
+  chargingSpeed: "90W Wired, 50W Wireless, 10W Reverse Wireless",
+  network: "5G / 4G LTE", wifi: "Wi-Fi 7 (802.11be)", bluetooth: "5.4",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano + eSIM)",
+  fingerprint: "In-display Optical", waterResistance: "IP68",
+};
+
+const x15Ultra: DetailedSpecs = {
+  dimensions: "160.6 × 75.2 × 9.5 mm", weight: "226g",
+  displayType: "AMOLED LTPO", screenSize: '6.67"', refreshRate: "120Hz Adaptive", resolution: "1440 × 3200",
+  processor: "Qualcomm Snapdragon 8 Elite (3nm)", gpu: "Adreno 830",
+  expandableStorage: "No",
+  rearCamera: "50MP (OIS, Leica) + 50MP Ultrawide + 50MP Telephoto + 200MP Periscope (10x)", frontCamera: "32MP",
+  chargingSpeed: "90W Wired, 80W Wireless, 10W Reverse Wireless",
+  network: "5G / 4G LTE", wifi: "Wi-Fi 7 (802.11be)", bluetooth: "5.4",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano + eSIM)",
+  fingerprint: "In-display Optical", waterResistance: "IP68",
+};
+
+// ── OPPO ──
+
+const oReno15Pro: DetailedSpecs = {
+  dimensions: "157.0 × 74.0 × 8.0 mm", weight: "185g",
+  displayType: "OLED", screenSize: '6.32"', refreshRate: "120Hz", resolution: "1080 × 2400",
+  processor: "Qualcomm Snapdragon 8s Gen 3 (4nm)", gpu: "Adreno 735",
+  expandableStorage: "No",
+  rearCamera: "200MP (OIS) + 50MP Ultra-wide + 50MP Telephoto (3x)", frontCamera: "50MP",
+  chargingSpeed: "80W Wired",
+  network: "5G / 4G LTE", wifi: "Wi-Fi 6E (802.11ax)", bluetooth: "5.4",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano + eSIM)",
+  fingerprint: "In-display Optical", waterResistance: "IP65",
+};
+
+const oReno14Pro: DetailedSpecs = {
+  dimensions: "162.3 × 75.8 × 7.7 mm", weight: "196g",
+  displayType: "OLED", screenSize: '6.83"', refreshRate: "120Hz", resolution: "1080 × 2400",
+  processor: "MediaTek Dimensity 9200 (4nm)", gpu: "Immortalis-G715",
+  expandableStorage: "No",
+  rearCamera: "50MP (OIS) + 50MP Ultra-wide + 50MP Telephoto", frontCamera: "50MP",
+  chargingSpeed: "80W Wired",
+  network: "5G / 4G LTE", wifi: "Wi-Fi 7 (802.11be)", bluetooth: "5.4",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano + eSIM)",
+  fingerprint: "In-display Optical", waterResistance: "IP65",
+};
+
+const oReno15: DetailedSpecs = {
+  dimensions: "163.2 × 76.0 × 7.8 mm", weight: "195g",
+  displayType: "OLED", screenSize: '6.59"', refreshRate: "120Hz", resolution: "1080 × 2400",
+  processor: "MediaTek Dimensity 8350 (4nm)", gpu: "Mali-G615 MC6",
+  expandableStorage: "No",
+  rearCamera: "50MP (OIS) + 50MP Ultra-wide + 8MP", frontCamera: "50MP",
+  chargingSpeed: "80W Wired",
+  network: "5G / 4G LTE", wifi: "Wi-Fi 6 (802.11ax)", bluetooth: "5.3",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano + eSIM)",
+  fingerprint: "In-display Optical", waterResistance: "IP65",
+};
+
+const oReno14: DetailedSpecs = {
+  dimensions: "162.5 × 75.7 × 7.7 mm", weight: "190g",
+  displayType: "1.5K OLED", screenSize: '6.59"', refreshRate: "120Hz", resolution: "1200 × 2640",
+  processor: "MediaTek Dimensity 8350 (4nm)", gpu: "Mali-G615 MC6",
+  expandableStorage: "No",
+  rearCamera: "50MP (OIS) + 50MP Ultra-wide + 8MP", frontCamera: "50MP",
+  chargingSpeed: "80W Wired",
+  network: "5G / 4G LTE", wifi: "Wi-Fi 7 (802.11be)", bluetooth: "5.4",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano + eSIM)",
+  fingerprint: "In-display Optical", waterResistance: "IP65",
+};
+
+const oReno15F: DetailedSpecs = {
+  dimensions: "163.2 × 76.0 × 7.8 mm", weight: "198g",
+  displayType: "1.5K OLED", screenSize: '6.59"', refreshRate: "120Hz", resolution: "1200 × 2640",
+  processor: "MediaTek Dimensity 7300 (4nm)", gpu: "Mali-G615 MC2",
+  expandableStorage: "Yes (microSD)",
+  rearCamera: "50MP (OIS) + 50MP Ultra-wide + 8MP", frontCamera: "50MP",
+  chargingSpeed: "45W Wired",
+  network: "5G / 4G LTE", wifi: "Wi-Fi 6 (802.11ax)", bluetooth: "5.2",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "In-display Optical", waterResistance: "IP54",
+};
+
+const oReno14F: DetailedSpecs = {
+  dimensions: "163.3 × 75.5 × 7.7 mm", weight: "188g",
+  displayType: "OLED", screenSize: '6.57"', refreshRate: "120Hz", resolution: "1080 × 2400",
+  processor: "MediaTek Dimensity 7300 (4nm)", gpu: "Mali-G615 MC2",
+  expandableStorage: "Yes (microSD)",
+  rearCamera: "50MP (OIS) + 8MP Ultra-wide + 2MP Macro", frontCamera: "32MP",
+  chargingSpeed: "45W Wired",
+  network: "5G / 4G LTE", wifi: "Wi-Fi 6 (802.11ax)", bluetooth: "5.2",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "In-display Optical", waterResistance: "No",
+};
+
+const oA6Pro: DetailedSpecs = {
+  dimensions: "163.7 × 75.9 × 7.9 mm", weight: "194g",
+  displayType: "AMOLED", screenSize: '6.57"', refreshRate: "120Hz", resolution: "1080 × 2400",
+  processor: "MediaTek Dimensity 7300 (4nm)", gpu: "Mali-G615 MC2",
+  expandableStorage: "Yes (microSD)",
+  rearCamera: "50MP + 2MP Depth", frontCamera: "16MP",
+  chargingSpeed: "45W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 6 (802.11ax)", bluetooth: "5.2",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "In-display Optical", waterResistance: "No",
+};
+
+const oA6s: DetailedSpecs = {
+  dimensions: "164.5 × 76.1 × 7.8 mm", weight: "188g",
+  displayType: "AMOLED", screenSize: '6.75"', refreshRate: "120Hz", resolution: "1080 × 2400",
+  processor: "MediaTek Helio G99 (6nm)", gpu: "Mali-G57 MC2",
+  expandableStorage: "Yes (microSD)",
+  rearCamera: "50MP + 2MP Depth", frontCamera: "16MP",
+  chargingSpeed: "33W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 5 (802.11ac)", bluetooth: "5.0",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "Side-mounted", waterResistance: "No",
+};
+
+const oA6: DetailedSpecs = {
+  dimensions: "165.2 × 76.4 × 7.9 mm", weight: "190g",
+  displayType: "IPS LCD", screenSize: '6.75"', refreshRate: "120Hz", resolution: "1080 × 2400",
+  processor: "MediaTek Helio G99 (6nm)", gpu: "Mali-G57 MC2",
+  expandableStorage: "Yes (microSD)",
+  rearCamera: "50MP + 2MP Depth", frontCamera: "8MP",
+  chargingSpeed: "33W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 5 (802.11ac)", bluetooth: "5.0",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "Side-mounted", waterResistance: "No",
+};
+
+const oA6k: DetailedSpecs = {
+  dimensions: "165.5 × 76.6 × 8.1 mm", weight: "195g",
+  displayType: "IPS LCD", screenSize: '6.75"', refreshRate: "90Hz", resolution: "720 × 1600 (HD+)",
+  processor: "MediaTek Helio G91 (12nm)", gpu: "Mali-G57 MC2",
+  expandableStorage: "Yes (microSD)",
+  rearCamera: "50MP", frontCamera: "5MP",
+  chargingSpeed: "15W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 5 (802.11ac)", bluetooth: "5.0",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "Side-mounted", waterResistance: "No",
+};
+
+const oA5Pro: DetailedSpecs = {
+  dimensions: "164.3 × 75.8 × 8.0 mm", weight: "192g",
+  displayType: "IPS LCD", screenSize: '6.67"', refreshRate: "90Hz", resolution: "1080 × 2400 (FHD+)",
+  processor: "MediaTek Helio G99 (6nm)", gpu: "Mali-G57 MC2",
+  expandableStorage: "Yes (microSD)",
+  rearCamera: "50MP (OIS) + 2MP Depth", frontCamera: "8MP",
+  chargingSpeed: "45W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 6 (802.11ax)", bluetooth: "5.1",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "Side-mounted", waterResistance: "No",
+};
+
+const oA5: DetailedSpecs = {
+  dimensions: "164.0 × 75.6 × 7.9 mm", weight: "188g",
+  displayType: "IPS LCD", screenSize: '6.67"', refreshRate: "90Hz", resolution: "1080 × 2400 (FHD+)",
+  processor: "MediaTek Helio G91 (12nm)", gpu: "Mali-G57 MC2",
+  expandableStorage: "Yes (microSD)",
+  rearCamera: "50MP + 2MP Depth", frontCamera: "8MP",
+  chargingSpeed: "33W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 5 (802.11ac)", bluetooth: "5.0",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "Side-mounted", waterResistance: "No",
+};
+
+const oA6x: DetailedSpecs = {
+  dimensions: "165.8 × 76.7 × 8.3 mm", weight: "195g",
+  displayType: "IPS LCD", screenSize: '6.75"', refreshRate: "120Hz", resolution: "720 × 1600 (HD+)",
+  processor: "MediaTek Helio G88 (12nm)", gpu: "Mali-G52 MC2",
+  expandableStorage: "Yes (microSD)",
+  rearCamera: "13MP + AI Lens", frontCamera: "5MP",
+  chargingSpeed: "15W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 5 (802.11ac)", bluetooth: "5.0",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "Side-mounted", waterResistance: "No",
+};
+
+const oA5x: DetailedSpecs = {
+  dimensions: "163.9 × 75.6 × 8.1 mm", weight: "192g",
+  displayType: "IPS LCD", screenSize: '6.67"', refreshRate: "90Hz", resolution: "720 × 1600 (HD+)",
+  processor: "MediaTek Helio G85 (12nm)", gpu: "Mali-G52 MC2",
+  expandableStorage: "Yes (microSD)",
+  rearCamera: "32MP + AI Lens", frontCamera: "5MP",
+  chargingSpeed: "15W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 5 (802.11ac)", bluetooth: "5.0",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "Side-mounted", waterResistance: "No",
+};
+
+const oA5i: DetailedSpecs = {
+  dimensions: "163.9 × 75.4 × 8.2 mm", weight: "190g",
+  displayType: "IPS LCD", screenSize: '6.67"', refreshRate: "60Hz", resolution: "720 × 1600 (HD+)",
+  processor: "MediaTek Helio G57 (12nm)", gpu: "Mali-G52",
+  expandableStorage: "Yes (microSD)",
+  rearCamera: "8MP", frontCamera: "5MP",
+  chargingSpeed: "10W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 4 (802.11n)", bluetooth: "5.0",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "Side-mounted", waterResistance: "No",
+};
+
+// ── Honor ──
+
+const hPlay10: DetailedSpecs = {
+  dimensions: "167.2 × 76.7 × 8.4 mm", weight: "188g",
+  displayType: "IPS LCD", screenSize: '6.74"', refreshRate: "90Hz", resolution: "720 × 1600 (HD+)",
+  processor: "MediaTek Helio G37 (12nm)", gpu: "PowerVR GE8320",
+  expandableStorage: "Yes (microSD)",
+  rearCamera: "13MP AF", frontCamera: "5MP",
+  chargingSpeed: "10W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 5 (802.11ac)", bluetooth: "5.0",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "Side-mounted", waterResistance: "No",
+};
+
+const hX5c: DetailedSpecs = {
+  dimensions: "167.2 × 76.7 × 8.4 mm", weight: "190g",
+  displayType: "IPS LCD", screenSize: '6.74"', refreshRate: "90Hz", resolution: "720 × 1600 (HD+)",
+  processor: "MediaTek Helio G37 (12nm)", gpu: "PowerVR GE8320",
+  expandableStorage: "Yes (microSD)",
+  rearCamera: "50MP + 0.08MP Depth", frontCamera: "5MP",
+  chargingSpeed: "10W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 5 (802.11ac)", bluetooth: "5.0",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "Side-mounted", waterResistance: "No",
+};
+
+const hX6c: DetailedSpecs = {
+  dimensions: "163.2 × 75.2 × 7.9 mm", weight: "180g",
+  displayType: "IPS LCD", screenSize: '6.61"', refreshRate: "120Hz", resolution: "1080 × 2388 (FHD+)",
+  processor: "Qualcomm Snapdragon 680 (6nm)", gpu: "Adreno 610",
+  expandableStorage: "Yes (microSD)",
+  rearCamera: "50MP + 0.08MP Depth", frontCamera: "5MP",
+  chargingSpeed: "22.5W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 5 (802.11ac)", bluetooth: "5.1",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "Side-mounted", waterResistance: "No",
+};
+
+const hX7c: DetailedSpecs = {
+  dimensions: "167.3 × 76.5 × 8.1 mm", weight: "197g",
+  displayType: "IPS LCD", screenSize: '6.77"', refreshRate: "120Hz", resolution: "1080 × 2388 (FHD+)",
+  processor: "Qualcomm Snapdragon 680 (6nm)", gpu: "Adreno 610",
+  expandableStorage: "Yes (microSD)",
+  rearCamera: "108MP + 2MP Depth", frontCamera: "8MP",
+  chargingSpeed: "35W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 5 (802.11ac)", bluetooth: "5.1",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "Side-mounted", waterResistance: "No",
+};
+
+const hX8d: DetailedSpecs = {
+  dimensions: "167.0 × 77.0 × 8.1 mm", weight: "198g",
+  displayType: "IPS LCD", screenSize: '6.78"', refreshRate: "120Hz", resolution: "1080 × 2388 (FHD+)",
+  processor: "Qualcomm Snapdragon 6 Gen 1 (4nm)", gpu: "Adreno 710",
+  expandableStorage: "Yes (microSD)",
+  rearCamera: "108MP (OIS) + 5MP Ultra-wide", frontCamera: "16MP",
+  chargingSpeed: "35W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 6 (802.11ax)", bluetooth: "5.2",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "Side-mounted", waterResistance: "No",
+};
+
+const hX9d: DetailedSpecs = {
+  dimensions: "167.5 × 77.5 × 8.1 mm", weight: "221g",
+  displayType: "IPS LCD", screenSize: '6.79"', refreshRate: "120Hz", resolution: "1080 × 2388 (FHD+)",
+  processor: "Qualcomm Snapdragon 6 Gen 3 (4nm)", gpu: "Adreno 710",
+  expandableStorage: "Yes (microSD)",
+  rearCamera: "108MP (OIS) + 5MP Ultra-wide", frontCamera: "16MP",
+  chargingSpeed: "35W Wired",
+  network: "5G / 4G LTE", wifi: "Wi-Fi 6 (802.11ax)", bluetooth: "5.3",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "Side-mounted", waterResistance: "No",
+};
+
+// ── Tecno ──
+
+const tSpark40ProPlus: DetailedSpecs = {
+  dimensions: "165.0 × 76.5 × 7.7 mm", weight: "185g",
+  displayType: "3D AMOLED", screenSize: '6.78"', refreshRate: "144Hz", resolution: "1220 × 2652 (1.5K)",
+  processor: "MediaTek Dimensity 7025 (6nm)", gpu: "Mali-G610 MC2",
+  expandableStorage: "Yes (microSD)",
+  rearCamera: "50MP (OIS) + AI Lens", frontCamera: "32MP",
+  chargingSpeed: "45W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 6 (802.11ax)", bluetooth: "5.1",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "In-display Optical", waterResistance: "No",
+};
+
+const tSpark40Pro: DetailedSpecs = {
+  dimensions: "165.0 × 76.5 × 7.9 mm", weight: "187g",
+  displayType: "AMOLED", screenSize: '6.78"', refreshRate: "144Hz", resolution: "1080 × 2400",
+  processor: "MediaTek Helio G92 (12nm)", gpu: "Mali-G57 MC2",
+  expandableStorage: "Yes (microSD)",
+  rearCamera: "50MP (OIS) + AI Lens", frontCamera: "32MP",
+  chargingSpeed: "33W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 5 (802.11ac)", bluetooth: "5.0",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "In-display Optical", waterResistance: "No",
+};
+
+const tSpark40: DetailedSpecs = {
+  dimensions: "163.5 × 75.3 × 7.8 mm", weight: "182g",
+  displayType: "IPS LCD", screenSize: '6.67"', refreshRate: "120Hz", resolution: "720 × 1600 (HD+)",
+  processor: "MediaTek Helio G88 (12nm)", gpu: "Mali-G52 MC2",
+  expandableStorage: "Yes (microSD)",
+  rearCamera: "50MP + AI Lens", frontCamera: "8MP",
+  chargingSpeed: "18W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 5 (802.11ac)", bluetooth: "5.0",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "Side-mounted", waterResistance: "No",
+};
+
+const tSpark40C: DetailedSpecs = {
+  dimensions: "163.9 × 75.5 × 8.0 mm", weight: "190g",
+  displayType: "IPS LCD", screenSize: '6.67"', refreshRate: "120Hz", resolution: "720 × 1600 (HD+)",
+  processor: "MediaTek Helio G85 (12nm)", gpu: "Mali-G52 MC2",
+  expandableStorage: "Yes (microSD)",
+  rearCamera: "13MP + 8MP Ultra-wide", frontCamera: "5MP",
+  chargingSpeed: "15W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 5 (802.11ac)", bluetooth: "5.0",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "Side-mounted", waterResistance: "No",
+};
+
+const tSparkGo3: DetailedSpecs = {
+  dimensions: "164.5 × 76.8 × 8.3 mm", weight: "193g",
+  displayType: "IPS LCD", screenSize: '6.75"', refreshRate: "120Hz", resolution: "720 × 1600 (HD+)",
+  processor: "MediaTek Helio G36 (12nm)", gpu: "PowerVR GE8320",
+  expandableStorage: "Yes (microSD)",
+  rearCamera: "13MP + 8MP", frontCamera: "5MP",
+  chargingSpeed: "10W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 4 (802.11n)", bluetooth: "5.0",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "Side-mounted", waterResistance: "No",
+};
+
+const tSparkGo2: DetailedSpecs = {
+  dimensions: "163.6 × 75.7 × 8.3 mm", weight: "190g",
+  displayType: "IPS LCD", screenSize: '6.67"', refreshRate: "120Hz", resolution: "720 × 1600 (HD+)",
+  processor: "MediaTek Helio G36 (12nm)", gpu: "PowerVR GE8320",
+  expandableStorage: "Yes (microSD)",
+  rearCamera: "13MP + 8MP", frontCamera: "5MP",
+  chargingSpeed: "10W Wired",
+  network: "4G LTE", wifi: "Wi-Fi 4 (802.11n)", bluetooth: "5.0",
+  usb: "USB Type-C 2.0", simType: "Dual SIM (Nano-SIM)",
+  fingerprint: "Side-mounted", waterResistance: "No",
+};
+
+// ── Master lookup map ────────────────────────────────────────────────────────
+
+export const productDetailedSpecs: Record<string, DetailedSpecs> = {
+  // Samsung Galaxy A07
+  s1: sA07, s2: sA07, s3: sA07,
+  // Samsung Galaxy A17
+  s4: sA17, s5: sA17,
+  // Samsung Galaxy A26 5G
+  s6: sA26,
+  // Samsung Galaxy A36 5G
+  s7: sA36,
+  // Samsung Galaxy A56 5G
+  s8: sA56, s9: sA56,
+  // Samsung Galaxy S25 FE
+  s10: sS25FE, s11: sS25FE,
+  // Samsung Galaxy S25 Ultra
+  s12: sS25Ultra,
+  // Samsung Galaxy S26
+  s13: sS26, s14: sS26,
+  // Samsung Galaxy S26+
+  s15: sS26Plus, s16: sS26Plus,
+  // Samsung Galaxy S26 Ultra
+  s17: sS26Ultra, s18: sS26Ultra, s19: sS26Ultra,
+  // Vivo X Fold 5
+  v1: vXFold5,
+  // Vivo X300 Pro
+  v2: vX300Pro,
+  // Vivo X200 FE
+  v3: vX200FE,
+  // Vivo V70
+  v4: vV70, v5: vV70,
+  // Vivo V60 Lite 5G
+  v6: vV60Lite5G,
+  // Vivo V60 Lite
+  v7: vV60Lite,
+  // Vivo Y400
+  v8: vY400,
+  // Vivo Y29
+  v9: vY29,
+  // Vivo Y21d
+  v10: vY21d, v11: vY21d,
+  // Vivo Y05
+  v12: vY05, v13: vY05, v14: vY05,
+  // Vivo Y04
+  v15: vY04, v16: vY04,
+  // Redmi A3X
+  r1: rA3X,
+  // Redmi A5
+  r2: rA5,
+  // Redmi 14C
+  r3: r14C, r4: r14C,
+  // Redmi 15C
+  r5: r15C, r6: r15C,
+  // Redmi 13
+  r7: r13,
+  // Redmi 15
+  r8: r15,
+  // Redmi Note 14
+  r9: rNote14, r10: rNote14,
+  // Redmi Note 14 Pro
+  r11: rNote14Pro, r12: rNote14Pro,
+  // Redmi Note 14 Pro+
+  r13: rNote14ProPlus,
+  // Xiaomi 15T
+  x1: x15T,
+  // Xiaomi 15T Pro
+  x2: x15TPro,
+  // Xiaomi 15
+  x3: x15,
+  // Xiaomi 15 Ultra
+  x4: x15Ultra,
+  // OPPO Reno 15 Pro 5G
+  o1: oReno15Pro,
+  // OPPO Reno 14 Pro 5G
+  o2: oReno14Pro,
+  // OPPO Reno 15 5G
+  o3: oReno15, o4: oReno15,
+  // OPPO Reno 14 5G
+  o5: oReno14, o6: oReno14,
+  // OPPO Reno 15 F 5G
+  o7: oReno15F,
+  // OPPO Reno 14 F 5G
+  o8: oReno14F,
+  // OPPO A6 Pro
+  o9: oA6Pro, o10: oA6Pro,
+  // OPPO A6s
+  o11: oA6s,
+  // OPPO A6
+  o12: oA6,
+  // OPPO A6k
+  o13: oA6k, o14: oA6k,
+  // OPPO A5 Pro
+  o15: oA5Pro, o16: oA5Pro,
+  // OPPO A5
+  o17: oA5, o18: oA5, o19: oA5,
+  // OPPO A6x
+  o20: oA6x, o21: oA6x, o22: oA6x, o23: oA6x,
+  // OPPO A5x
+  o24: oA5x, o25: oA5x,
+  // OPPO A5i
+  o26: oA5i, o27: oA5i,
+  // Honor Play 10
+  h1: hPlay10,
+  // Honor X5c
+  h2: hX5c,
+  // Honor X5c Plus
+  h3: hX5c,
+  // Honor X6c
+  h4: hX6c, h5: hX6c,
+  // Honor X7c
+  h6: hX7c,
+  // Honor X8d
+  h7: hX8d,
+  // Honor X9d 5G
+  h8: hX9d,
+  // Tecno Spark 40 Pro+
+  t1: tSpark40ProPlus,
+  // Tecno Spark 40 Pro
+  t2: tSpark40Pro,
+  // Tecno Spark 40
+  t3: tSpark40,
+  // Tecno Spark 40C
+  t4: tSpark40C,
+  // Tecno Spark Go 3
+  t5: tSparkGo3, t6: tSparkGo3,
+  // Tecno Spark Go 2
+  t7: tSparkGo2,
+};
+
 export const formatPKR = (amount: number) => {
   return new Intl.NumberFormat('en-PK', {
     style: 'currency',
