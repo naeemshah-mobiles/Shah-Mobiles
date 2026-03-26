@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "types": ["vite/client"],
-    "moduleResolution": "nodenext",   // ✅ change from "node" to "nodenext"
+    "moduleResolution": "nodenext",
     "module": "ESNext",
     "jsx": "react-jsx",
     "target": "ESNext",
@@ -11,8 +11,6 @@
   "include": ["src/**/*"],
   "exclude": ["node_modules", "build", "dist", "**/*.test.ts"],
   "references": [
-    {
-      "path": "../../lib/api-client-react"
-    }
+    { "path": "../../lib/api-client-react" }
   ]
 }
