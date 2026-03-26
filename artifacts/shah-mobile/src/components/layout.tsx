@@ -162,99 +162,106 @@ export function Layout({ children }: LayoutProps) {
       <main className="flex-1 flex flex-col">{children}</main>
 
       {/* ── FOOTER ─────────────────────────────────────────────────────── */}
-<footer style={{ background: "#080808", borderTop: "1px solid rgba(201,162,39,0.15)" }}>
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+      <footer style={{ background: "#080808", borderTop: "1px solid rgba(201,162,39,0.15)" }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
 
-      {/* Brand */}
-      <div>
-        <div className="flex items-center gap-2.5 mb-4">
-          <div className="w-9 h-9 rounded-lg flex items-center justify-center"
-            style={{ background: "linear-gradient(135deg, #C9A227, #F0D060)" }}
-          >
-            <Smartphone className="text-black w-5 h-5" />
+            {/* Brand Section */}
+            <div>
+              <div className="flex items-center gap-2.5 mb-4">
+                <div className="w-9 h-9 rounded-lg flex items-center justify-center"
+                  style={{ background: "linear-gradient(135deg, #C9A227, #F0D060)" }}
+                >
+                  <Smartphone className="text-black w-5 h-5" />
+                </div>
+                <span className="font-bold text-lg text-white" style={{ fontFamily: "var(--font-display)" }}>
+                  Shah Mobile
+                </span>
+              </div>
+              <p className="text-white/40 text-sm leading-relaxed">
+                Abbottabad's most trusted mobile store. Genuine products, honest
+                prices, and real guidance — all in one place.
+              </p>
+              <div className="mt-4 flex items-center gap-1">
+                {[1, 2, 3, 4, 5].map((i) => (
+                  <svg key={i} className="w-4 h-4 fill-current" style={{ color: "#C9A227" }} viewBox="0 0 20 20">
+                    <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                  </svg>
+                ))}
+                <span className="ml-2 text-white/30 text-sm">5.0 · 670+ reviews</span>
+              </div>
+            </div>
+
+            {/* Quick Links */}
+            <div>
+              <h3 className="font-semibold text-base mb-4" style={{ color: "#C9A227" }}>Quick Links</h3>
+              <ul className="space-y-2.5">
+                {navLinksClean.map((link) => (
+                  <li key={link.href + link.label}>
+                    <Link href={link.href}>
+                      <a className="text-white/40 hover:text-primary transition-colors text-sm">
+                        {link.label}
+                      </a>
+                    </Link>
+                  </li>
+                ))}
+                <li>
+                  <Link href="/store">
+                    <a className="text-white/40 hover:text-primary transition-colors text-sm">
+                      Deals & Offers
+                    </a>
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Contact Section */}
+            <div>
+              <h3 className="font-semibold text-base mb-4" style={{ color: "#C9A227" }}>Get in Touch</h3>
+              <ul className="space-y-3 text-sm text-white/40">
+                <li className="flex items-start gap-2">
+                  <span className="mt-0.5 shrink-0">📍</span>
+                  <span>Shop No. 1, Latif Khan Plaza Mandian, Abbottabad, 2014, Pakistan</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span>📞</span>
+                  <a href="tel:+923465900627" className="hover:text-primary transition-colors">
+                    +92 346 5900627
+                  </a>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span>✉️</span>
+                  <a href="mailto:naeem.hussain262@gmail.com" className="hover:text-primary transition-colors">
+                    naeem.hussain262@gmail.com
+                  </a>
+                </li>
+                <li className="flex items-center gap-2">
+                  <span>🕘</span>
+                  <span>Opens 9 AM daily</span>
+                </li>
+              </ul>
+            </div>
           </div>
-          <span className="font-bold text-lg text-white" style={{ fontFamily: "var(--font-display)" }}>
-            Shah Mobile
-          </span>
-        </div>
-        <p className="text-white/40 text-sm leading-relaxed">
-          Abbottabad's most trusted mobile store. Genuine products, honest
-          prices, and real guidance — all in one place.
-        </p>
-        <div className="mt-4 flex items-center gap-1">
-          {[1, 2, 3, 4, 5].map((i) => (
-            <svg key={i} className="w-4 h-4 fill-current" style={{ color: "#C9A227" }} viewBox="0 0 20 20">
-              <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-            </svg>
-          ))}
-          <span className="ml-2 text-white/30 text-sm">5.0 · 670+ reviews</span>
-        </div>
-      </div>
 
-      {/* Quick Links */}
-      <div>
-        <h3 className="font-semibold text-base mb-4" style={{ color: "#C9A227" }}>Quick Links</h3>
-        <ul className="space-y-2.5">
-          {navLinksClean.map((link) => (
-            <li key={link.href + link.label}>
-              <Link href={link.href} className="text-white/40 hover:text-primary transition-colors text-sm">
-                {link.label}
-              </Link>
-            </li>
-          ))}
-          <li>
-            <Link href="/store" className="text-white/40 hover:text-primary transition-colors text-sm">
-              Deals & Offers
+          {/* Bottom Bar with Admin Link */}
+          <div className="mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-white/20"
+            style={{ borderTop: "1px solid rgba(201,162,39,0.1)" }}
+          >
+            <div className="flex flex-col sm:flex-row items-center gap-3">
+              <span>© {new Date().getFullYear()} Shah Mobile Zone. All rights reserved.</span>
+              <span className="hidden sm:inline">|</span>
+              <span>Abbottabad, Pakistan</span>
+            </div>
+            
+            {/* Direct Link to Admin to avoid 404 */}
+            <Link href="/admin">
+              <a className="hover:text-primary/60 transition-colors opacity-50 hover:opacity-100 flex items-center gap-1">
+                <span>🔒</span> Admin Portal
+              </a>
             </Link>
-          </li>
-        </ul>
-      </div>
-
-      {/* Contact */}
-      <div>
-        <h3 className="font-semibold text-base mb-4" style={{ color: "#C9A227" }}>Get in Touch</h3>
-        <ul className="space-y-3 text-sm text-white/40">
-          <li className="flex items-start gap-2">
-            <span className="mt-0.5 shrink-0">📍</span>
-            <span>Shop No. 1, Latif Khan Plaza Mandian, Abbottabad, 2014, Pakistan</span>
-          </li>
-          <li className="flex items-center gap-2">
-            <span>📞</span>
-            <a href="tel:+923465900627" className="hover:text-primary transition-colors">
-              +92 346 5900627
-            </a>
-          </li>
-          <li className="flex items-center gap-2">
-            <span>✉️</span>
-            <a href="mailto:naeem.hussain262@gmail.com" className="hover:text-primary transition-colors">
-              naeem.hussain262@gmail.com
-            </a>
-          </li>
-          <li className="flex items-center gap-2">
-            <span>🕘</span>
-            <span>Opens 9 AM daily</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    {/* Bottom Bar with Admin Link */}
-    <div className="mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-white/20"
-      style={{ borderTop: "1px solid rgba(201,162,39,0.1)" }}
-    >
-      <div className="flex flex-col sm:flex-row items-center gap-3">
-        <span>© {new Date().getFullYear()} Shah Mobile Zone. All rights reserved.</span>
-        <span className="hidden sm:inline">|</span>
-        <span>Abbottabad, Pakistan</span>
-      </div>
-      
-      {/* Admin Button Fitting */}
-      <Link href="/admin">
-        <a className="hover:text-primary/60 transition-colors opacity-50 hover:opacity-100 flex items-center gap-1">
-          <span>🔒</span> Admin Portal
-        </a>
-      </Link>
-    </div>
-  </div>
-</footer>
+          </div>
+        </div>
+      </footer>
+    </div> // Ye div wrapper ko band kar raha hai
+  );
+}
