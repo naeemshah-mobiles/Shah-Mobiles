@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pnpm --filter @workspace/shah-mobile build",
+  "buildCommand": "pnpm --filter shah-mobile build",
   "outputDirectory": "dist",
   "installCommand": "pnpm install",
   "rewrites": [
