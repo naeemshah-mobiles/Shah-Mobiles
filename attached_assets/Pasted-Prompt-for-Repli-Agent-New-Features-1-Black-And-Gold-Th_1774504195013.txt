@@ -1,0 +1,132 @@
+Prompt for Repli Agent:
+
+ New Features:
+1. Black And Gold Theme.
+2. Discount badges
+3. Only 2 left 
+4. Flash Sale
+5. Premium Website
+6. Floating WhatsApp Button
+7. Iphones List have to add (list is in whattsapp chat)
+8. Menu: 
+ . Home
+ . Mobiles
+ . Accessories
+ . Gadgets . Smart Devices
+ . Deals
+ . Contact
+9. Search Filter:
+ . Price
+ . Brand
+ . PTA status
+10. New Arrival
+ . Latest Product
+ . Trending Items
+11.
+Deals & Offers (Very Important)
+	•	Hot Deals 🔥
+	•	Discount Products
+	•	Clearance Sale
+12.
+Repair Tools & Parts 
+	•	Mobile Tools Kits
+	•	LCD / Screens
+	•	Charging Ports
+	•	IC Parts
+13.
+Storage Devices
+	•	Memory Cards
+	•	USB Flash Drives
+	•	OTG Connectors
+14.
+Car Accessories
+	•	Car Mobile Holders
+	•	Car Chargers
+	•	Bluetooth Car Kits
+15.
+Smart Gadgets
+	•	Smart Watches
+	•	Fitness Bands
+16.
+. Mobile Gadgets
+	•	Ring Lights 💡
+	•	Selfie Sticks
+	•	Mobile Stands
+	•	Tripods
+	•	Gaming Triggers
+	•	Cooling Fans (Gaming)
+17.
+Speakers & Sound
+	•	Bluetooth Speakers
+	•	Mini Speakers
+	•	Soundbars
+18.
+Mobile Covers & Protection
+	•	Back Covers
+	•	Flip Covers
+	•	Transparent Covers
+	•	Rugged Covers
+	•	Screen Protectors
+	•	Tempered Glass
+	•	Camera Lens Protectors
+19.
+Cables / Wires
+	•	Data Cables
+	•	Fast Charging Cables
+	•	Type-C Cables
+	•	Micro USB
+	•	Lightning Cables (iPhone)
+	•	AUX Cables
+20.
+Smartphones
+	•	PTA Approved Phones
+	•	Non-PTA Phones
+	•	Used / Second Hand
+	•	Box Pack
+	•	iPhone
+	•	Android Phones
+	•	Budget Phones (Under 50k)
+	•	Gaming Phones
+21. 
+Audio Accessories
+	•	Handsfree
+	•	Earbuds (AirPods type)
+	•	Wireless Earphones
+	•	Headphones
+	•	Bluetooth Headphones
+	•	Speakers (Bluetooth / Mini)
+
+22.
+Chargers & Power
+	•	Fast Chargers
+	•	Normal Chargers
+	•	Wireless Chargers
+	•	Car Chargers
+	•	Power Banks
+	•	Charging Dock
+23.
+•	Apple
+	•	Samsung
+	•	Xiaomi
+	•	Oppo
+	•	Vivo
+	•	Infinix
+	•	Tecno
+	•	Realme
+	•	Itel
+	•	Nokia
+	•	OnePlus
+	•	Google Pixel
+	•	Motorola
+	•	Huawei
+	•	Honor
+	•	QMobile
+	•	Calme
+	•	GFive
+	•	Asus
+	•	Sony
+	•	Nothing
+	•	ZTE
+	•	Black Shark
+Mobiles brand k list.
+website me pehle se jo bhi products he jis brands ke wo waise hi rehne do sirf un products ki high quality images download kar ke add karo ta ke images folder me hi safely rahe, and jo me ne images provide ki he iphone brand kmobiles ki un mobiles ko bhi add kro aur un ki bhi high quality images add karo, and ek aur baat ye jo me ne itni sari cheeze btayi he na ye itne sare brands aur cables etc etc in ka bs samjho ke e new store bana rahe ho aur ye sari info he us ki bs products add mat karna lekin products ki jagah chorr do aur admin panel me bhi har catory ki cheez store me add karne ke liye sahi banao.

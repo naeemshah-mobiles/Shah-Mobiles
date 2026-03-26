@@ -14,6 +14,12 @@ export interface Product {
   price: number;
   image: string;
   specs: ProductSpecs;
+  discountPercent?: number;
+  originalPrice?: number;
+  isFlashSale?: boolean;
+  isNew?: boolean;
+  stockLeft?: number;
+  pta?: "approved" | "non-pta" | "grey";
 }
 
 export const products: Product[] = [
@@ -842,6 +848,212 @@ export const products: Product[] = [
     image: "public/images/Tecno/tecnosparkgo2.jpg",
     specs: { ram: "4GB", storage: "64GB", camera: "13+8MP", battery: "N/A", display: '6.67" 120Hz', os: "Android 14 (HiOS 14)" }
   },
+
+  // ─── APPLE ─────────────────────────────────────────────────────────────────
+
+  {
+    id: "ap1",
+    name: "Apple iPhone 14 128GB — Midnight",
+    brand: "Apple",
+    price: 175000,
+    image: "images/Apple/iphone14.jpg",
+    pta: "grey",
+    specs: { ram: "6GB", storage: "128GB", camera: "12+12MP", battery: "3279mAh", display: '6.1" OLED 60Hz', os: "iOS 17" }
+  },
+  {
+    id: "ap2",
+    name: "Apple iPhone 14 128GB — Blue",
+    brand: "Apple",
+    price: 175000,
+    image: "images/Apple/iphone14.jpg",
+    pta: "grey",
+    specs: { ram: "6GB", storage: "128GB", camera: "12+12MP", battery: "3279mAh", display: '6.1" OLED 60Hz', os: "iOS 17" }
+  },
+  {
+    id: "ap3",
+    name: "Apple iPhone 15 128GB — Black",
+    brand: "Apple",
+    price: 225000,
+    image: "images/Apple/iphone15.jpg",
+    pta: "grey",
+    stockLeft: 3,
+    specs: { ram: "6GB", storage: "128GB", camera: "48+12MP", battery: "3877mAh", display: '6.1" OLED 60Hz', os: "iOS 18" }
+  },
+  {
+    id: "ap4",
+    name: "Apple iPhone 15 128GB — Blue",
+    brand: "Apple",
+    price: 225000,
+    image: "images/Apple/iphone15.jpg",
+    pta: "grey",
+    specs: { ram: "6GB", storage: "128GB", camera: "48+12MP", battery: "3877mAh", display: '6.1" OLED 60Hz', os: "iOS 18" }
+  },
+  {
+    id: "ap5",
+    name: "Apple iPhone 16 128GB — Black",
+    brand: "Apple",
+    price: 265000,
+    originalPrice: 280000,
+    discountPercent: 5,
+    isFlashSale: true,
+    image: "images/Apple/iphone16.jpg",
+    pta: "approved",
+    specs: { ram: "8GB", storage: "128GB", camera: "48+12MP", battery: "3561mAh", display: '6.1" OLED 60Hz', os: "iOS 18" }
+  },
+  {
+    id: "ap6",
+    name: "Apple iPhone 16 128GB — White",
+    brand: "Apple",
+    price: 265000,
+    image: "images/Apple/iphone16.jpg",
+    pta: "approved",
+    specs: { ram: "8GB", storage: "128GB", camera: "48+12MP", battery: "3561mAh", display: '6.1" OLED 60Hz', os: "iOS 18" }
+  },
+  {
+    id: "ap7",
+    name: "Apple iPhone 16 128GB — Ultramarine",
+    brand: "Apple",
+    price: 265000,
+    image: "images/Apple/iphone16.jpg",
+    pta: "approved",
+    stockLeft: 2,
+    specs: { ram: "8GB", storage: "128GB", camera: "48+12MP", battery: "3561mAh", display: '6.1" OLED 60Hz', os: "iOS 18" }
+  },
+  {
+    id: "ap8",
+    name: "Apple iPhone 17 512GB — White",
+    brand: "Apple",
+    price: 415000,
+    isNew: true,
+    image: "images/Apple/iphone17.jpg",
+    pta: "approved",
+    specs: { ram: "8GB", storage: "512GB", camera: "48+12MP", battery: "4000mAh", display: '6.1" OLED 60Hz', os: "iOS 18" }
+  },
+  {
+    id: "ap9",
+    name: "Apple iPhone 17 512GB — Mist Blue",
+    brand: "Apple",
+    price: 415000,
+    isNew: true,
+    image: "images/Apple/iphone17.jpg",
+    pta: "approved",
+    specs: { ram: "8GB", storage: "512GB", camera: "48+12MP", battery: "4000mAh", display: '6.1" OLED 60Hz', os: "iOS 18" }
+  },
+  {
+    id: "ap10",
+    name: "Apple iPhone 17 512GB — Sage",
+    brand: "Apple",
+    price: 415000,
+    isNew: true,
+    image: "images/Apple/iphone17.jpg",
+    pta: "approved",
+    specs: { ram: "8GB", storage: "512GB", camera: "48+12MP", battery: "4000mAh", display: '6.1" OLED 60Hz', os: "iOS 18" }
+  },
+  {
+    id: "ap11",
+    name: "Apple iPhone 17 Air 256GB — Space Black",
+    brand: "Apple",
+    price: 355000,
+    isNew: true,
+    image: "images/Apple/iphone17air.jpg",
+    pta: "approved",
+    specs: { ram: "8GB", storage: "256GB", camera: "48+12MP", battery: "3600mAh", display: '6.6" OLED 60Hz', os: "iOS 18" }
+  },
+  {
+    id: "ap12",
+    name: "Apple iPhone 17 Pro 1TB — Cosmic Orange",
+    brand: "Apple",
+    price: 660000,
+    isNew: true,
+    stockLeft: 1,
+    image: "images/Apple/iphone17pro.jpg",
+    pta: "approved",
+    specs: { ram: "12GB", storage: "1TB", camera: "48+12+12MP", battery: "4100mAh", display: '6.3" ProMotion 120Hz', os: "iOS 18" }
+  },
+  {
+    id: "ap13",
+    name: "Apple iPhone 17 Pro 256GB — Silver",
+    brand: "Apple",
+    price: 470000,
+    isNew: true,
+    image: "images/Apple/iphone17pro.jpg",
+    pta: "approved",
+    specs: { ram: "12GB", storage: "256GB", camera: "48+12+12MP", battery: "4100mAh", display: '6.3" ProMotion 120Hz', os: "iOS 18" }
+  },
+  {
+    id: "ap14",
+    name: "Apple iPhone 17 Pro 256GB — Cosmic Orange",
+    brand: "Apple",
+    price: 470000,
+    isNew: true,
+    image: "images/Apple/iphone17pro.jpg",
+    pta: "approved",
+    specs: { ram: "12GB", storage: "256GB", camera: "48+12+12MP", battery: "4100mAh", display: '6.3" ProMotion 120Hz', os: "iOS 18" }
+  },
+  {
+    id: "ap15",
+    name: "Apple iPhone 17 Pro 256GB — Deep Blue",
+    brand: "Apple",
+    price: 470000,
+    isNew: true,
+    image: "images/Apple/iphone17pro.jpg",
+    pta: "approved",
+    specs: { ram: "12GB", storage: "256GB", camera: "48+12+12MP", battery: "4100mAh", display: '6.3" ProMotion 120Hz', os: "iOS 18" }
+  },
+  {
+    id: "ap16",
+    name: "Apple iPhone 17 Pro 512GB — Cosmic Orange",
+    brand: "Apple",
+    price: 535000,
+    isNew: true,
+    image: "images/Apple/iphone17pro.jpg",
+    pta: "approved",
+    specs: { ram: "12GB", storage: "512GB", camera: "48+12+12MP", battery: "4100mAh", display: '6.3" ProMotion 120Hz', os: "iOS 18" }
+  },
+  {
+    id: "ap17",
+    name: "Apple iPhone 17 Pro Max 256GB — Cosmic Orange",
+    brand: "Apple",
+    price: 535000,
+    originalPrice: 565000,
+    discountPercent: 5,
+    isNew: true,
+    isFlashSale: true,
+    image: "images/Apple/iphone17promax.jpg",
+    pta: "approved",
+    specs: { ram: "12GB", storage: "256GB", camera: "48+12+12MP", battery: "4685mAh", display: '6.9" ProMotion 120Hz', os: "iOS 18" }
+  },
+  {
+    id: "ap18",
+    name: "Apple iPhone 17 Pro Max 256GB — Deep Blue",
+    brand: "Apple",
+    price: 565000,
+    isNew: true,
+    image: "images/Apple/iphone17promax.jpg",
+    pta: "approved",
+    specs: { ram: "12GB", storage: "256GB", camera: "48+12+12MP", battery: "4685mAh", display: '6.9" ProMotion 120Hz', os: "iOS 18" }
+  },
+  {
+    id: "ap19",
+    name: "Apple iPhone 17 Pro Max 512GB — Cosmic Orange",
+    brand: "Apple",
+    price: 635000,
+    isNew: true,
+    image: "images/Apple/iphone17promax.jpg",
+    pta: "approved",
+    specs: { ram: "12GB", storage: "512GB", camera: "48+12+12MP", battery: "4685mAh", display: '6.9" ProMotion 120Hz', os: "iOS 18" }
+  },
+  {
+    id: "ap20",
+    name: "Apple iPhone 17 Pro Max 512GB — Deep Blue",
+    brand: "Apple",
+    price: 635000,
+    isNew: true,
+    stockLeft: 2,
+    image: "images/Apple/iphone17promax.jpg",
+    pta: "approved",
+    specs: { ram: "12GB", storage: "512GB", camera: "48+12+12MP", battery: "4685mAh", display: '6.9" ProMotion 120Hz', os: "iOS 18" }
+  },
 ];
 
 // ─── DETAILED SPECIFICATIONS ────────────────────────────────────────────────
@@ -1615,6 +1827,92 @@ const tSparkGo2: DetailedSpecs = {
   fingerprint: "Side-mounted", waterResistance: "No",
 };
 
+// ── Apple ──
+
+const iphone14: DetailedSpecs = {
+  dimensions: "146.7 × 71.5 × 7.8 mm", weight: "172g",
+  displayType: "Super Retina XDR OLED", screenSize: '6.1"', refreshRate: "60Hz", resolution: "2532 × 1170 (460 ppi)",
+  processor: "Apple A15 Bionic (5nm)", gpu: "Apple GPU (4-core)",
+  expandableStorage: "No",
+  rearCamera: "12MP (OIS) + 12MP Ultra-wide", frontCamera: "12MP TrueDepth",
+  chargingSpeed: "20W Wired / 15W MagSafe",
+  network: "5G / 4G LTE", wifi: "Wi-Fi 6 (802.11ax)", bluetooth: "5.3",
+  usb: "Lightning", simType: "Nano-SIM + eSIM",
+  fingerprint: "Face ID", waterResistance: "IP68 (6m / 30 min)",
+};
+
+const iphone15: DetailedSpecs = {
+  dimensions: "147.6 × 71.6 × 7.8 mm", weight: "171g",
+  displayType: "Super Retina XDR OLED", screenSize: '6.1"', refreshRate: "60Hz", resolution: "2556 × 1179 (460 ppi)",
+  processor: "Apple A16 Bionic (4nm)", gpu: "Apple GPU (5-core)",
+  expandableStorage: "No",
+  rearCamera: "48MP (OIS) + 12MP Ultra-wide", frontCamera: "12MP TrueDepth",
+  chargingSpeed: "20W Wired / 15W MagSafe",
+  network: "5G / 4G LTE", wifi: "Wi-Fi 6 (802.11ax)", bluetooth: "5.3",
+  usb: "USB Type-C 2.0", simType: "Nano-SIM + eSIM",
+  fingerprint: "Face ID", waterResistance: "IP68 (6m / 30 min)",
+};
+
+const iphone16: DetailedSpecs = {
+  dimensions: "147.6 × 71.6 × 7.8 mm", weight: "170g",
+  displayType: "Super Retina XDR OLED", screenSize: '6.1"', refreshRate: "60Hz", resolution: "2556 × 1179 (460 ppi)",
+  processor: "Apple A18 (3nm)", gpu: "Apple GPU (5-core)",
+  expandableStorage: "No",
+  rearCamera: "48MP (OIS) + 12MP Ultra-wide", frontCamera: "12MP TrueDepth",
+  chargingSpeed: "25W Wired / 25W MagSafe",
+  network: "5G / 4G LTE", wifi: "Wi-Fi 7 (802.11be)", bluetooth: "5.3",
+  usb: "USB Type-C 3.0", simType: "Nano-SIM + eSIM",
+  fingerprint: "Face ID", waterResistance: "IP68 (6m / 30 min)",
+};
+
+const iphone17: DetailedSpecs = {
+  dimensions: "147.7 × 71.7 × 7.8 mm", weight: "170g",
+  displayType: "Super Retina XDR OLED", screenSize: '6.1"', refreshRate: "60Hz", resolution: "2556 × 1179 (460 ppi)",
+  processor: "Apple A19 Bionic (3nm)", gpu: "Apple GPU (6-core)",
+  expandableStorage: "No",
+  rearCamera: "48MP (OIS) + 12MP Ultra-wide", frontCamera: "24MP TrueDepth",
+  chargingSpeed: "30W Wired / 25W MagSafe",
+  network: "5G / 4G LTE", wifi: "Wi-Fi 7 (802.11be)", bluetooth: "5.4",
+  usb: "USB Type-C 3.0", simType: "eSIM only",
+  fingerprint: "Face ID", waterResistance: "IP68 (6m / 30 min)",
+};
+
+const iphone17Air: DetailedSpecs = {
+  dimensions: "163.3 × 77.4 × 5.5 mm", weight: "145g",
+  displayType: "Super Retina XDR OLED", screenSize: '6.6"', refreshRate: "60Hz", resolution: "2796 × 1290 (460 ppi)",
+  processor: "Apple A19 Bionic (3nm)", gpu: "Apple GPU (5-core)",
+  expandableStorage: "No",
+  rearCamera: "48MP (OIS)", frontCamera: "24MP TrueDepth",
+  chargingSpeed: "30W Wired / 25W MagSafe",
+  network: "5G / 4G LTE", wifi: "Wi-Fi 7 (802.11be)", bluetooth: "5.4",
+  usb: "USB Type-C 3.0", simType: "eSIM only",
+  fingerprint: "Face ID", waterResistance: "IP68 (6m / 30 min)",
+};
+
+const iphone17Pro: DetailedSpecs = {
+  dimensions: "149.6 × 71.5 × 8.2 mm", weight: "190g",
+  displayType: "ProMotion OLED (LTPO)", screenSize: '6.3"', refreshRate: "1–120Hz ProMotion", resolution: "2622 × 1206 (460 ppi)",
+  processor: "Apple A19 Pro (3nm)", gpu: "Apple GPU (6-core)",
+  expandableStorage: "No",
+  rearCamera: "48MP (OIS) + 48MP Ultra-wide + 12MP 5× Tetraprism", frontCamera: "24MP TrueDepth",
+  chargingSpeed: "30W Wired / 25W MagSafe",
+  network: "5G / 4G LTE", wifi: "Wi-Fi 7 (802.11be)", bluetooth: "5.4",
+  usb: "USB Type-C 3.2 Gen 2", simType: "eSIM only",
+  fingerprint: "Face ID", waterResistance: "IP68 (6m / 30 min)",
+};
+
+const iphone17ProMax: DetailedSpecs = {
+  dimensions: "163.0 × 77.6 × 8.2 mm", weight: "227g",
+  displayType: "ProMotion OLED (LTPO)", screenSize: '6.9"', refreshRate: "1–120Hz ProMotion", resolution: "2868 × 1320 (460 ppi)",
+  processor: "Apple A19 Pro (3nm)", gpu: "Apple GPU (6-core)",
+  expandableStorage: "No",
+  rearCamera: "48MP (OIS) + 48MP Ultra-wide + 12MP 5× Tetraprism", frontCamera: "24MP TrueDepth",
+  chargingSpeed: "30W Wired / 25W MagSafe",
+  network: "5G / 4G LTE", wifi: "Wi-Fi 7 (802.11be)", bluetooth: "5.4",
+  usb: "USB Type-C 3.2 Gen 2", simType: "eSIM only",
+  fingerprint: "Face ID", waterResistance: "IP68 (6m / 30 min)",
+};
+
 // ── Master lookup map ────────────────────────────────────────────────────────
 
 export const productDetailedSpecs: Record<string, DetailedSpecs> = {
@@ -1742,6 +2040,20 @@ export const productDetailedSpecs: Record<string, DetailedSpecs> = {
   t5: tSparkGo3, t6: tSparkGo3,
   // Tecno Spark Go 2
   t7: tSparkGo2,
+  // iPhone 14
+  ap1: iphone14, ap2: iphone14,
+  // iPhone 15
+  ap3: iphone15, ap4: iphone15,
+  // iPhone 16
+  ap5: iphone16, ap6: iphone16, ap7: iphone16,
+  // iPhone 17
+  ap8: iphone17, ap9: iphone17, ap10: iphone17,
+  // iPhone 17 Air
+  ap11: iphone17Air,
+  // iPhone 17 Pro
+  ap12: iphone17Pro, ap13: iphone17Pro, ap14: iphone17Pro, ap15: iphone17Pro, ap16: iphone17Pro,
+  // iPhone 17 Pro Max
+  ap17: iphone17ProMax, ap18: iphone17ProMax, ap19: iphone17ProMax, ap20: iphone17ProMax,
 };
 
 export const formatPKR = (amount: number) => {
