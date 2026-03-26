@@ -4,7 +4,6 @@ import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 
 const isReplit = !!process.env.REPL_ID;
-
 const port = process.env.PORT ? Number(process.env.PORT) : 3000;
 const basePath = process.env.BASE_PATH ?? "/";
 
@@ -19,9 +18,7 @@ export default defineConfig({
           ...(process.env.NODE_ENV !== "production"
             ? [
                 await import("@replit/vite-plugin-cartographer").then((m) =>
-                  m.cartographer({
-                    root: path.resolve(import.meta.dirname, ".."),
-                  }),
+                  m.cartographer({ root: path.resolve(import.meta.dirname, "..") }),
                 ),
                 await import("@replit/vite-plugin-dev-banner").then((m) =>
                   m.devBanner(),
@@ -40,7 +37,7 @@ export default defineConfig({
   },
   root: path.resolve(import.meta.dirname),
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    outDir: "dist",   // ✅ keep it simple
     emptyOutDir: true,
   },
   server: {
