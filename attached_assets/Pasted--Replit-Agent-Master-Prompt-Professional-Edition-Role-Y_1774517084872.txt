@@ -1,0 +1,52 @@
+🚀 Replit Agent Master Prompt (Professional Edition)
+Role: You are a Senior Full-Stack Developer. I need you to rebuild the "Shah-Mobiles" store into a luxury, high-performance e-commerce platform.
+
+1. Brand Identity & UI (The "Ultra Professional" Look):
+
+Theme: Transform the site into a Premium Black and Gold aesthetic. Use #000000 for deep backgrounds and #D4AF37 (Gold) for accents, borders, and CTA buttons.
+
+Trust Signals: Integrate a "Verified Shop" section using the provided Google Reviews (5.0 rating, 67 reviews). Mention the location: "Latif Khan Plaza, Abbottabad".
+
+Conversion UI: Add a Floating WhatsApp Button, Discount Badges (e.g., "Save Rs. 5,000"), and urgency markers like "Only 2 Left" or "Flash Sale 🔥".
+
+2. Architecture & Navigation (Mega Menu Tabs):
+Create a professional navigation bar with the following specific Tabs:
+
+Home, Mobiles, Accessories, Gadgets, Smart Devices, Deals, Contact.
+
+3. Categorized Product Ecosystem (The "Client's Future Proof" Request):
+The Admin Panel and Frontend must support these specific categories. Do not just add products; create the infrastructure so the client can add/remove items in:
+
+Smartphones: (Include the provided lists for Samsung S25/S26, iPhone 17 series, Vivo X-series, Xiaomi 15, Oppo Reno15).
+
+Accessories: Cables (Type-C, Lightning, AUX), Chargers (Fast, Wireless), Power Banks.
+
+Audio: Earbuds, AirPods, Wireless Headphones, Bluetooth Speakers.
+
+Repair Tools & Parts: (LCD Screens, Charging Ports, IC Parts, Tool Kits).
+
+Smart Gadgets: Smart Watches, Fitness Bands, Ring Lights, Gaming Triggers.
+
+Protection: Back Covers, Tempered Glass, Camera Lens Protectors.
+
+Storage: Memory Cards, USB Flash Drives.
+
+4. Advanced Admin Panel & Product Detail Page:
+
+Detailed Forms: The Admin Panel must allow entering: Model Number, RAM/ROM, Display Size, Camera Specs, Battery, and Price.
+
+PTA Status: Add a specific toggle/filter for "PTA Approved" vs "Non-PTA".
+
+Dynamic Specs: The Product Detail page should show an icon-based grid for specs (e.g., a 🔋 icon for 5000mAh).
+
+Pre-Booking: Enable a "Pre-Book Now!" status for upcoming models like Samsung S26 and iPhone 17.
+
+5. Implementation of Client Data:
+
+Update Pricing: Use the exact prices provided in the chat (e.g., Samsung A07 @ Rs. 30,500, S26 Ultra @ Rs. 489,999).
+
+Image Management: Download and use high-quality images for the brand's existing products. For the new iPhone and Samsung models, use premium placeholders stored in /public/images/[brand]/.
+
+WhatsApp Logic: When "Buy via WhatsApp" is clicked, it must send a message: "Hi Shah Mobiles, I want to buy [Product Name] for [Price]. Is it available?"
+
+Final Instruction: The code must be clean, modular (React/TypeScript), and feel like a high-end custom build, not a generic template. Ensure the artifacts/shah-mobile structure is maintained.

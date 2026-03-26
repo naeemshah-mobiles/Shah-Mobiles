@@ -54,23 +54,27 @@ export function Layout({ children }: LayoutProps) {
             </Link>
 
             {/* Desktop Nav */}
-            <nav className="hidden md:flex items-center gap-1">
+            <nav className="hidden md:flex items-center gap-0.5">
               {[
                 { href: "/", label: "Home" },
                 { href: "/store", label: "Mobiles" },
-                { href: "/store", label: "Deals 🔥" },
+                { href: "/accessories", label: "Accessories" },
+                { href: "/gadgets", label: "Gadgets" },
+                { href: "/smart-devices", label: "Smart Devices" },
+                { href: "/store?deals=1", label: "Deals 🔥" },
                 { href: "/contact", label: "Contact" },
               ].map((link) => {
-                const isActive = location === link.href && link.label !== "Deals 🔥";
+                const isActive = location === link.href;
+                const isDeals = link.label === "Deals 🔥";
                 return (
                   <Link
                     key={link.label}
                     href={link.href}
                     className={cn(
-                      "px-4 py-2 rounded-lg text-sm font-semibold transition-colors",
+                      "px-3 py-2 rounded-lg text-sm font-semibold transition-colors",
                       isActive
                         ? "text-primary"
-                        : link.label === "Deals 🔥"
+                        : isDeals
                         ? "text-red-400 hover:text-red-300 hover:bg-red-950/30"
                         : "text-white/60 hover:text-white hover:bg-white/8",
                     )}
@@ -113,10 +117,14 @@ export function Layout({ children }: LayoutProps) {
               {[
                 { href: "/", label: "Home" },
                 { href: "/store", label: "Mobiles" },
-                { href: "/store", label: "Deals 🔥" },
+                { href: "/accessories", label: "Accessories" },
+                { href: "/gadgets", label: "Gadgets" },
+                { href: "/smart-devices", label: "Smart Devices" },
+                { href: "/store?deals=1", label: "Deals 🔥" },
                 { href: "/contact", label: "Contact" },
               ].map((link) => {
-                const isActive = location === link.href && link.label !== "Deals 🔥";
+                const isActive = location === link.href;
+                const isDeals = link.label === "Deals 🔥";
                 return (
                   <Link
                     key={link.label}
@@ -126,7 +134,7 @@ export function Layout({ children }: LayoutProps) {
                       "px-4 py-3 rounded-xl text-sm font-semibold transition-colors",
                       isActive
                         ? "bg-primary/15 text-primary"
-                        : link.label === "Deals 🔥"
+                        : isDeals
                         ? "text-red-400 hover:bg-red-950/30"
                         : "text-white/70 hover:text-white hover:bg-white/8",
                     )}

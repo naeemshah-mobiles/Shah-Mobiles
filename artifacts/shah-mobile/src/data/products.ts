@@ -18,8 +18,10 @@ export interface Product {
   originalPrice?: number;
   isFlashSale?: boolean;
   isNew?: boolean;
+  isPreBook?: boolean;
   stockLeft?: number;
   pta?: "approved" | "non-pta" | "grey";
+  modelNumber?: string;
 }
 
 export const products: Product[] = [
@@ -134,6 +136,7 @@ export const products: Product[] = [
     name: "Samsung Galaxy S26 (12GB+256GB)",
     brand: "Samsung",
     price: 299999,
+    isPreBook: true,
     image: "images/Samsung/galaxys26.jpg",
     specs: { ram: "12GB", storage: "256GB", camera: "50+10+12MP", battery: "4300mAh", display: '6.3"', os: "Android 15 (One UI 7)" }
   },
@@ -142,6 +145,7 @@ export const products: Product[] = [
     name: "Samsung Galaxy S26 (12GB+512GB)",
     brand: "Samsung",
     price: 356999,
+    isPreBook: true,
     image: "images/Samsung/galaxys26.jpg",
     specs: { ram: "12GB", storage: "512GB", camera: "50+10+12MP", battery: "4300mAh", display: '6.3"', os: "Android 15 (One UI 7)" }
   },
@@ -151,6 +155,7 @@ export const products: Product[] = [
     name: "Samsung Galaxy S26+ (12GB+256GB)",
     brand: "Samsung",
     price: 364999,
+    isPreBook: true,
     image: "images/Samsung/galaxys26+.jpg",
     specs: { ram: "12GB", storage: "256GB", camera: "50+10+12MP", battery: "4900mAh", display: '6.7"', os: "Android 15 (One UI 7)" }
   },
@@ -159,6 +164,7 @@ export const products: Product[] = [
     name: "Samsung Galaxy S26+ (12GB+512GB)",
     brand: "Samsung",
     price: 409999,
+    isPreBook: true,
     image: "images/Samsung/galaxys26+.jpg",
     specs: { ram: "12GB", storage: "512GB", camera: "50+10+12MP", battery: "4900mAh", display: '6.7"', os: "Android 15 (One UI 7)" }
   },
@@ -168,6 +174,7 @@ export const products: Product[] = [
     name: "Samsung Galaxy S26 Ultra (12GB+256GB)",
     brand: "Samsung",
     price: 424999,
+    isPreBook: true,
     image: "images/Samsung/galaxys26ultra.jpg",
     specs: { ram: "12GB", storage: "256GB", camera: "200+10+50MP", battery: "5000mAh", display: '6.9"', os: "Android 15 (One UI 7)" }
   },
@@ -176,6 +183,7 @@ export const products: Product[] = [
     name: "Samsung Galaxy S26 Ultra (12GB+512GB)",
     brand: "Samsung",
     price: 489999,
+    isPreBook: true,
     image: "images/Samsung/galaxys26ultra.jpg",
     specs: { ram: "12GB", storage: "512GB", camera: "200+10+50MP", battery: "5000mAh", display: '6.9"', os: "Android 15 (One UI 7)" }
   },
@@ -184,6 +192,7 @@ export const products: Product[] = [
     name: "Samsung Galaxy S26 Ultra (16GB+1TB)",
     brand: "Samsung",
     price: 579999,
+    isPreBook: true,
     image: "images/Samsung/galaxys26ultra.jpg",
     specs: { ram: "16GB", storage: "1TB", camera: "200+10+50MP", battery: "5000mAh", display: '6.9"', os: "Android 15 (One UI 7)" }
   },
@@ -925,6 +934,7 @@ export const products: Product[] = [
     brand: "Apple",
     price: 415000,
     isNew: true,
+    isPreBook: true,
     image: "images/Apple/iphone17.jpg",
     pta: "approved",
     specs: { ram: "8GB", storage: "512GB", camera: "48+12MP", battery: "4000mAh", display: '6.1" OLED 60Hz', os: "iOS 18" }
@@ -935,6 +945,7 @@ export const products: Product[] = [
     brand: "Apple",
     price: 415000,
     isNew: true,
+    isPreBook: true,
     image: "images/Apple/iphone17.jpg",
     pta: "approved",
     specs: { ram: "8GB", storage: "512GB", camera: "48+12MP", battery: "4000mAh", display: '6.1" OLED 60Hz', os: "iOS 18" }
@@ -945,6 +956,7 @@ export const products: Product[] = [
     brand: "Apple",
     price: 415000,
     isNew: true,
+    isPreBook: true,
     image: "images/Apple/iphone17.jpg",
     pta: "approved",
     specs: { ram: "8GB", storage: "512GB", camera: "48+12MP", battery: "4000mAh", display: '6.1" OLED 60Hz', os: "iOS 18" }
@@ -955,6 +967,7 @@ export const products: Product[] = [
     brand: "Apple",
     price: 355000,
     isNew: true,
+    isPreBook: true,
     image: "images/Apple/iphone17air.jpg",
     pta: "approved",
     specs: { ram: "8GB", storage: "256GB", camera: "48+12MP", battery: "3600mAh", display: '6.6" OLED 60Hz', os: "iOS 18" }
@@ -965,6 +978,7 @@ export const products: Product[] = [
     brand: "Apple",
     price: 660000,
     isNew: true,
+    isPreBook: true,
     stockLeft: 1,
     image: "images/Apple/iphone17pro.jpg",
     pta: "approved",
@@ -976,6 +990,7 @@ export const products: Product[] = [
     brand: "Apple",
     price: 470000,
     isNew: true,
+    isPreBook: true,
     image: "images/Apple/iphone17pro.jpg",
     pta: "approved",
     specs: { ram: "12GB", storage: "256GB", camera: "48+12+12MP", battery: "4100mAh", display: '6.3" ProMotion 120Hz', os: "iOS 18" }
@@ -986,6 +1001,7 @@ export const products: Product[] = [
     brand: "Apple",
     price: 470000,
     isNew: true,
+    isPreBook: true,
     image: "images/Apple/iphone17pro.jpg",
     pta: "approved",
     specs: { ram: "12GB", storage: "256GB", camera: "48+12+12MP", battery: "4100mAh", display: '6.3" ProMotion 120Hz', os: "iOS 18" }
@@ -996,6 +1012,7 @@ export const products: Product[] = [
     brand: "Apple",
     price: 470000,
     isNew: true,
+    isPreBook: true,
     image: "images/Apple/iphone17pro.jpg",
     pta: "approved",
     specs: { ram: "12GB", storage: "256GB", camera: "48+12+12MP", battery: "4100mAh", display: '6.3" ProMotion 120Hz', os: "iOS 18" }
@@ -1006,6 +1023,7 @@ export const products: Product[] = [
     brand: "Apple",
     price: 535000,
     isNew: true,
+    isPreBook: true,
     image: "images/Apple/iphone17pro.jpg",
     pta: "approved",
     specs: { ram: "12GB", storage: "512GB", camera: "48+12+12MP", battery: "4100mAh", display: '6.3" ProMotion 120Hz', os: "iOS 18" }
@@ -1018,7 +1036,7 @@ export const products: Product[] = [
     originalPrice: 565000,
     discountPercent: 5,
     isNew: true,
-    isFlashSale: true,
+    isPreBook: true,
     image: "images/Apple/iphone17promax.jpg",
     pta: "approved",
     specs: { ram: "12GB", storage: "256GB", camera: "48+12+12MP", battery: "4685mAh", display: '6.9" ProMotion 120Hz', os: "iOS 18" }
@@ -1029,6 +1047,7 @@ export const products: Product[] = [
     brand: "Apple",
     price: 565000,
     isNew: true,
+    isPreBook: true,
     image: "images/Apple/iphone17promax.jpg",
     pta: "approved",
     specs: { ram: "12GB", storage: "256GB", camera: "48+12+12MP", battery: "4685mAh", display: '6.9" ProMotion 120Hz', os: "iOS 18" }
@@ -1039,6 +1058,7 @@ export const products: Product[] = [
     brand: "Apple",
     price: 635000,
     isNew: true,
+    isPreBook: true,
     image: "images/Apple/iphone17promax.jpg",
     pta: "approved",
     specs: { ram: "12GB", storage: "512GB", camera: "48+12+12MP", battery: "4685mAh", display: '6.9" ProMotion 120Hz', os: "iOS 18" }
@@ -1049,6 +1069,7 @@ export const products: Product[] = [
     brand: "Apple",
     price: 635000,
     isNew: true,
+    isPreBook: true,
     stockLeft: 2,
     image: "images/Apple/iphone17promax.jpg",
     pta: "approved",

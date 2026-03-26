@@ -47,10 +47,12 @@ export default function ProductDetail() {
   }
 
   const handleWhatsAppClick = () => {
-    const text = encodeURIComponent(
-      `Hi Shah Mobile! I want to buy the ${product.name}. Is it available?`,
-    );
-    window.open(`https://wa.me/923001234567?text=${text}`, "_blank");
+    const priceStr = `Rs. ${product.price.toLocaleString()}`;
+    const msg = product.isPreBook
+      ? `Hi Shah Mobiles, I want to Pre-Book the ${product.name} for ${priceStr}. Please confirm availability and booking details.`
+      : `Hi Shah Mobiles, I want to buy ${product.name} for ${priceStr}. Is it available?`;
+    const text = encodeURIComponent(msg);
+    window.open(`https://wa.me/923465900627?text=${text}`, "_blank");
   };
 
   const specsList = [
