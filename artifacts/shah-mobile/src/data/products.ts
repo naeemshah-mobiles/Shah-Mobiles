@@ -7,6 +7,8 @@ export interface ProductSpecs {
   os: string;
 }
 
+export type ProductCategory = "mobile" | "accessory" | "gadget" | "smart-device";
+
 export interface Product {
   id: string;
   name: string;
@@ -14,6 +16,8 @@ export interface Product {
   price: number;
   image: string;
   specs: ProductSpecs;
+  extraSpecs?: Record<string, string>;
+  category?: ProductCategory;
   discountPercent?: number;
   originalPrice?: number;
   isFlashSale?: boolean;
@@ -23,6 +27,13 @@ export interface Product {
   pta?: "approved" | "non-pta" | "grey";
   modelNumber?: string;
 }
+
+export const ALL_BRANDS = [
+  "Apple", "Samsung", "Xiaomi", "Oppo", "Vivo", "Infinix", "Tecno",
+  "Realme", "Itel", "Nokia", "OnePlus", "Google Pixel", "Motorola",
+  "Huawei", "Honor", "QMobile", "Calme", "GFive", "Asus", "Sony",
+  "Nothing", "ZTE", "Black Shark",
+];
 
 export const products: Product[] = [
 
