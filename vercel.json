@@ -11,11 +11,7 @@
   ],
   "rewrites": [
     {
-      "source": "/admin(.*)",
-      "destination": "/"
-    },
-    {
-      "source": "/((?!api|artifacts/shah-mobile/.*).*)",
+      "source": "/(.*)",
       "destination": "/"
     }
   ]
