@@ -1,9 +1,12 @@
 {
+  "version": 2,
   "builds": [
     {
       "src": "artifacts/shah-mobile/package.json",
       "use": "@vercel/static-build",
-      "config": { "distDir": "dist" }
+      "config": { 
+        "distDir": "dist"
+      }
     }
   ],
   "rewrites": [
@@ -12,7 +15,7 @@
       "destination": "/"
     },
     {
-      "source": "/(.*)",
+      "source": "/((?!api|artifacts/shah-mobile/.*).*)",
       "destination": "/"
     }
   ]
