@@ -155,7 +155,7 @@ export default function Home() {
               transition={{ duration: 0.7 }}
             >
               <div className="flex items-center gap-2 mb-7">
-                <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: "#C9A227" }} />
+                <span className="w-2 h-2 rounded-full shrink-0" style={{ background: "#C9A227" }} />
                 <span className="text-sm font-semibold tracking-wide" style={{ color: "rgba(201,162,39,0.8)" }}>
                   Abbottabad, Pakistan · Est. 2014
                 </span>
@@ -480,7 +480,7 @@ export default function Home() {
                 </p>
                 <div className="flex items-center gap-3 pt-4" style={{ borderTop: "1px solid rgba(201,162,39,0.1)" }}>
                   <div
-                    className="w-8 h-8 rounded-full flex items-center justify-center font-black text-sm flex-shrink-0"
+                    className="w-8 h-8 rounded-full flex items-center justify-center font-black text-sm shrink-0"
                     style={{ background: "rgba(201,162,39,0.15)", color: "#C9A227" }}
                   >
                     {r.initial}

@@ -83,7 +83,7 @@ export default function ProductDetail() {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}
-                className="relative rounded-2xl bg-white/5 p-8 flex items-center justify-center min-h-[400px] border border-white/10"
+                className="relative rounded-2xl bg-white/5 p-8 flex items-center justify-center min-h-400px border border-white/10"
               >
                 <div className="absolute top-6 left-6 z-10">
                   <span className="px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-xs font-bold uppercase tracking-widest text-primary">
@@ -93,7 +93,7 @@ export default function ProductDetail() {
                 <img
                   src={getImagePath(product.image)}
                   alt={product.name}
-                  className="w-full max-w-[400px] h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
+                  className="w-full max-w-400px h-auto object-contain drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)]"
                   onError={(e) => {
                     (e.target as HTMLImageElement).src =
                       "https://via.placeholder.com/400x400?text=No+Image+Found";
@@ -156,11 +156,11 @@ export default function ProductDetail() {
                     <div className="mb-10 rounded-xl border border-white/10 overflow-hidden">
                       {Object.entries(product.extraSpecs).map(([key, val], i) => (
                         <div key={i}
-                          className={`flex items-stretch min-h-[40px] ${i % 2 === 0 ? "bg-white/5" : "bg-transparent"}`}>
+                          className={`flex items-stretch min-h-40px ${i % 2 === 0 ? "bg-white/5" : "bg-transparent"}`}>
                           <div className="w-2/5 px-4 py-2.5 flex items-center">
                             <span className="text-sm font-semibold text-gray-400">{key}</span>
                           </div>
-                          <div className="w-px bg-white/10 flex-shrink-0" />
+                          <div className="w-px bg-white/10 shrink-0" />
                           <div className="flex-1 px-4 py-2.5 flex items-center">
                             <span className="text-sm text-gray-200">{val}</span>
                           </div>
@@ -242,7 +242,7 @@ export default function ProductDetail() {
                     {rows.map((row, i) => (
                       <div
                         key={i}
-                        className={`flex items-stretch min-h-[44px] ${
+                        className={`flex items-stretch min-h-44px ${
                           i % 2 === 0 ? "bg-white/5" : "bg-transparent"
                         }`}
                       >
@@ -251,7 +251,7 @@ export default function ProductDetail() {
                             {row.label}
                           </span>
                         </div>
-                        <div className="w-px bg-white/10 flex-shrink-0" />
+                        <div className="w-px bg-white/10 shrink-0" />
                         <div className="flex-1 px-4 py-3 flex items-center">
                           <span className="text-sm text-gray-200">
                             {row.value}

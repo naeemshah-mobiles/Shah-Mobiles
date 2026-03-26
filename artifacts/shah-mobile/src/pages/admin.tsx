@@ -235,7 +235,7 @@ export default function Admin() {
             </div>
             {loginError && (
               <p className="text-red-400 text-sm mb-4 flex items-center gap-2">
-                <AlertTriangle className="w-4 h-4 flex-shrink-0" />{loginError}
+                <AlertTriangle className="w-4 h-4 shrink-0" />{loginError}
               </p>
             )}
             <button type="submit" className="w-full font-black py-3 rounded-lg transition-all hover:scale-[1.02]"
@@ -477,9 +477,9 @@ export default function Admin() {
                       <input type="text" value={row.val}
                         onChange={e => handleExtraRowChange(idx, "val", e.target.value)}
                         placeholder="Value (e.g. Snapdragon 8 Gen 3)"
-                        className={inputCls + " flex-[2]"} style={{ minWidth: 0 }} />
+                        className={inputCls + " flex-"2"} style={{ minWidth: 0 }} />
                       <button type="button" onClick={() => removeExtraRow(idx)}
-                        className="flex-shrink-0 w-9 h-9 flex items-center justify-center rounded-lg transition-colors hover:bg-red-400/10 hover:text-red-400"
+                        className="shrink-0 w-9 h-9 flex items-center justify-center rounded-lg transition-colors hover:bg-red-400/10 hover:text-red-400"
                         style={{ color: "rgba(255,255,255,0.3)", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
                         <X className="w-4 h-4" />
                       </button>
@@ -497,7 +497,7 @@ export default function Admin() {
               {formError && (
                 <div className="mt-5 p-3 rounded-lg flex items-center gap-2 text-red-400 text-sm"
                   style={{ background: "rgba(239,68,68,0.08)", border: "1px solid rgba(239,68,68,0.25)" }}>
-                  <AlertTriangle className="w-4 h-4 flex-shrink-0" />{formError}
+                  <AlertTriangle className="w-4 h-4 shrink-0" />{formError}
                 </div>
               )}
               {successMsg && (
@@ -552,7 +552,7 @@ export default function Admin() {
               ) : (
                 managedProducts.map(product => (
                   <div key={product.id}
-                    className="px-6 py-4 flex items-center justify-between gap-4 transition-colors hover:bg-white/[0.02]">
+                    className="px-6 py-4 flex items-center justify-between gap-4 transition-colors hover:bg-white 0.02">
                     <div className="min-w-0">
                       <div className="flex items-center gap-2 flex-wrap mb-0.5">
                         <p className="font-medium text-white truncate">{product.name}</p>
@@ -596,7 +596,7 @@ export default function Admin() {
                     </div>
 
                     {deleteConfirm === product.id ? (
-                      <div className="flex items-center gap-2 flex-shrink-0">
+                      <div className="flex items-center gap-2 shrink-0">
                         <span className="text-xs text-red-400">Confirm delete?</span>
                         <button onClick={() => handleDelete(product.id)}
                           className="px-3 py-1.5 bg-red-600 hover:bg-red-700 text-white text-xs font-semibold rounded-lg transition-colors">
@@ -610,7 +610,7 @@ export default function Admin() {
                       </div>
                     ) : (
                       <button onClick={() => setDeleteConfirm(product.id)}
-                        className="flex-shrink-0 p-2 rounded-lg transition-colors hover:bg-red-400/10 hover:text-red-400"
+                        className="shrink-0 p-2 rounded-lg transition-colors hover:bg-red-400/10 hover:text-red-400"
                         style={{ color: "rgba(255,255,255,0.3)" }} title="Delete">
                         <Trash2 className="w-4 h-4" />
                       </button>

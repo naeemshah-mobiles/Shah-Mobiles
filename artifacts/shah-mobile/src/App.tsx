@@ -5,13 +5,13 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 
 import Home from "@/pages/home";
 import Store from "@/pages/store";
-import Gadgets from "@/pages/gadgets";
-import Accessories from "@/pages/accessories";
-import SmartDevices from "@/pages/smart-devices";
 import About from "@/pages/about";
 import Contact from "@/pages/contact";
 import ProductDetail from "@/pages/product-detail";
 import Admin from "@/pages/admin";
+import Accessories from "@/pages/accessories";
+import Gadgets from "@/pages/gadgets";
+import SmartDevices from "@/pages/smart-devices";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient({
@@ -28,8 +28,8 @@ function Router() {
     <Switch>
       <Route path="/" component={Home} />
       <Route path="/store" component={Store} />
-      <Route path="/gadgets" component={Gadgets} />
       <Route path="/accessories" component={Accessories} />
+      <Route path="/gadgets" component={Gadgets} />
       <Route path="/smart-devices" component={SmartDevices} />
       <Route path="/about" component={About} />
       <Route path="/contact" component={Contact} />
@@ -44,8 +44,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        {/* ✅ Base fix */}
-        <WouterRouter base="/">
+        <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
           <Router />
         </WouterRouter>
         <Toaster />

@@ -1,6 +1,6 @@
 {
   "buildCommand": "pnpm --filter @workspace/shah-mobile build",
-  "outputDirectory": "dist",
+  "outputDirectory": "artifacts/shah-mobile/dist/public",
   "installCommand": "pnpm install",
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
