@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "types": ["vite/client"],
-    "moduleResolution": "node",
+    "moduleResolution": "nodenext",   // ✅ change from "node" to "nodenext"
     "module": "ESNext",
     "jsx": "react-jsx",
     "target": "ESNext",
