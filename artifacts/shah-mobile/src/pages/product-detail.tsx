@@ -172,7 +172,7 @@ export default function ProductDetail() {
                   {/* Action Button */}
                   <button
                     onClick={handleWhatsAppClick}
-                    className="w-full py-4 px-8 rounded-2xl font-bold text-lg text-white bg-[#25D366] hover:bg-[#1EBE5D] shadow-lg shadow-[#25D366]/20 hover:shadow-xl hover:shadow-[#25D366]/30 hover:-translate-y-1 active:translate-y-0 transition-all duration-300 flex items-center justify-center gap-3"
+                    className="w-full py-4 px-8 rounded-2xl font-bold text-lg text-white bg-[#25D366] hover:bg-[#1EBE5D] shadow-lg shadow-#25D366]/20 hover:shadow-xl hover:shadow-#25D366]/30 hover:-translate-y-1 active:translate-y-0 transition-all duration-300 flex items-center justify-center gap-3"
                   >
                     <svg
                       viewBox="0 0 24 24"

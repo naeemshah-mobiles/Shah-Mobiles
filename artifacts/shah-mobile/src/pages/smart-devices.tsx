@@ -106,7 +106,7 @@ export default function SmartDevices() {
                   <ul className="space-y-1.5">
                     {cat.items.map((item) => (
                       <li key={item} className="text-sm text-white/55 flex items-center gap-2">
-                        <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ background: "#C9A227" }} />
+                        <span className="w-1 h-1 rounded-full shrink-0" style={{ background: "#C9A227" }} />
                         {item}
                       </li>
                     ))}
