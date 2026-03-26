@@ -5,10 +5,9 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 
 import Home from "@/pages/home";
 import Store from "@/pages/store";
-import Gadgets from "./pages/gadgets";
-import Accessories from "./pages/accessories";
-import SmartDevices from "./pages/smart-devices";
-
+import Gadgets from "@/pages/gadgets";
+import Accessories from "@/pages/accessories";
+import SmartDevices from "@/pages/smart-devices";
 import About from "@/pages/about";
 import Contact from "@/pages/contact";
 import ProductDetail from "@/pages/product-detail";
@@ -45,7 +44,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
-        {/* ✅ Base ko "/" fix kar diya */}
+        {/* ✅ Base fix */}
         <WouterRouter base="/">
           <Router />
         </WouterRouter>
