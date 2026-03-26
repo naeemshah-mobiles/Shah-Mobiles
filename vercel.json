@@ -1,7 +1,7 @@
 {
   "buildCommand": "pnpm --filter shah-mobile build",
   "outputDirectory": "dist",
-  "installCommand": "pnpm install",
+  "installCommand": "pnpm install --no-frozen-lockfile",
   "rewrites": [
     { "source": "/(.*)", "destination": "/index.html" }
   ]
