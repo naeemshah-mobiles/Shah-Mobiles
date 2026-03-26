@@ -1,7 +1,7 @@
 import { Link } from "wouter";
 import { motion } from "framer-motion";
 import { Product, formatPKR } from "../data/products";
-import { Flame, Sparkles } from "lucide-react";
+import { Flame, Sparkles, BookOpen } from "lucide-react";
 
 interface ProductCardProps {
   product: Product;
@@ -43,14 +43,23 @@ export function ProductCard({ product }: ProductCardProps) {
             </span>
 
             {/* Flash Sale badge */}
-            {product.isFlashSale && (
+            {product.isFlashSale && !product.isPreBook && (
               <span className="absolute top-3 right-3 flex items-center gap-1 px-2 py-0.5 rounded-full bg-red-600 text-white text-[10px] font-bold uppercase tracking-wide flash-pulse">
                 <Flame className="w-3 h-3" /> Flash
               </span>
             )}
 
-            {/* New badge (only if not flash sale) */}
-            {product.isNew && !product.isFlashSale && (
+            {/* Pre-Book badge */}
+            {product.isPreBook && (
+              <span className="absolute top-3 right-3 flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wide"
+                style={{ background: "linear-gradient(135deg, #C9A227, #F0D060)", color: "#000" }}
+              >
+                <BookOpen className="w-3 h-3" /> Pre-Book
+              </span>
+            )}
+
+            {/* New badge (only if not flash sale and not pre-book) */}
+            {product.isNew && !product.isFlashSale && !product.isPreBook && (
               <span className="absolute top-3 right-3 flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-600 text-white text-[10px] font-bold uppercase tracking-wide">
                 <Sparkles className="w-3 h-3" /> New
               </span>

@@ -47,10 +47,12 @@ export default function ProductDetail() {
   }
 
   const handleWhatsAppClick = () => {
-    const text = encodeURIComponent(
-      `Hi Shah Mobile! I want to buy the ${product.name}. Is it available?`,
-    );
-    window.open(`https://wa.me/923001234567?text=${text}`, "_blank");
+    const priceStr = `Rs. ${product.price.toLocaleString()}`;
+    const msg = product.isPreBook
+      ? `Hi Shah Mobiles, I want to Pre-Book the ${product.name} for ${priceStr}. Please confirm availability and booking details.`
+      : `Hi Shah Mobiles, I want to buy ${product.name} for ${priceStr}. Is it available?`;
+    const text = encodeURIComponent(msg);
+    window.open(`https://wa.me/923465900627?text=${text}`, "_blank");
   };
 
   const specsList = [
@@ -128,8 +130,8 @@ export default function ProductDetail() {
                     Technical Specifications
                   </h3>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-                    {specsList.map((spec, i) => (
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+                    {specsList.filter(s => s.value && s.value !== "N/A").map((spec, i) => (
                       <div
                         key={i}
                         className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
@@ -148,6 +150,24 @@ export default function ProductDetail() {
                       </div>
                     ))}
                   </div>
+
+                  {/* Extra Specs from Admin */}
+                  {product.extraSpecs && Object.keys(product.extraSpecs).length > 0 && (
+                    <div className="mb-10 rounded-xl border border-white/10 overflow-hidden">
+                      {Object.entries(product.extraSpecs).map(([key, val], i) => (
+                        <div key={i}
+                          className={`flex items-stretch min-h-[40px] ${i % 2 === 0 ? "bg-white/5" : "bg-transparent"}`}>
+                          <div className="w-2/5 px-4 py-2.5 flex items-center">
+                            <span className="text-sm font-semibold text-gray-400">{key}</span>
+                          </div>
+                          <div className="w-px bg-white/10 flex-shrink-0" />
+                          <div className="flex-1 px-4 py-2.5 flex items-center">
+                            <span className="text-sm text-gray-200">{val}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  )}
 
                   {/* Action Button */}
                   <button

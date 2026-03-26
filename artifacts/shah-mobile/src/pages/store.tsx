@@ -1,9 +1,10 @@
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
-import { Search, SlidersHorizontal, X, Flame, Sparkles } from "lucide-react";
+import { Search, SlidersHorizontal, X, Flame, Sparkles, PackageX } from "lucide-react";
 import { Layout } from "@/components/layout";
 import { ProductCard } from "@/components/product-card";
 import { useProducts } from "@/hooks/use-products";
+import { ALL_BRANDS } from "@/data/products";
 import { cn } from "@/lib/utils";
 
 const containerVariants = {
@@ -28,8 +29,10 @@ const PRICE_RANGES = [
   { value: "premium", label: "Above Rs.300K" },
 ];
 
+const ALL_BRAND_FILTERS = ["All", ...ALL_BRANDS];
+
 export default function Store() {
-  const { products, searchQuery, setSearchQuery, selectedBrand, setSelectedBrand, brands } = useProducts();
+  const { products, searchQuery, setSearchQuery, selectedBrand, setSelectedBrand } = useProducts();
   const [ptaFilter, setPtaFilter] = useState("all");
   const [priceRange, setPriceRange] = useState("all");
   const [showDealsOnly, setShowDealsOnly] = useState(false);
@@ -52,6 +55,8 @@ export default function Store() {
       return true;
     });
   }, [products, ptaFilter, priceRange, showDealsOnly, showNewOnly]);
+
+  const brandHasNoStock = selectedBrand !== "All" && filtered.length === 0 && !searchQuery && ptaFilter === "all" && priceRange === "all" && !showDealsOnly && !showNewOnly;
 
   const clearAll = () => {
     setSearchQuery("");
@@ -150,8 +155,8 @@ export default function Store() {
           <div className="flex items-start gap-3">
             <span className="text-xs font-semibold shrink-0 mt-2" style={{ color: "rgba(201,162,39,0.6)" }}>Brand</span>
             <div className="flex items-center gap-2 overflow-x-auto pb-1 flex-1">
-              <div className="flex items-center gap-2 min-w-max">
-                {brands.map((brand) => (
+              <div className="flex items-center gap-2 min-w-max flex-wrap">
+                {ALL_BRAND_FILTERS.map((brand) => (
                   <button
                     key={brand}
                     onClick={() => setSelectedBrand(brand)}
@@ -236,7 +241,47 @@ export default function Store() {
         </div>
 
         {/* Grid */}
-        {filtered.length > 0 ? (
+        {brandHasNoStock ? (
+          <div
+            className="text-center py-24 rounded-2xl border border-dashed"
+            style={{ borderColor: "rgba(201,162,39,0.15)", background: "rgba(201,162,39,0.02)" }}
+          >
+            <div
+              className="w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4"
+              style={{ background: "rgba(201,162,39,0.08)" }}
+            >
+              <PackageX className="w-9 h-9" style={{ color: "rgba(201,162,39,0.5)" }} />
+            </div>
+            <h3 className="font-black text-2xl text-white mb-2">{selectedBrand}</h3>
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full mb-4"
+              style={{ background: "rgba(239,68,68,0.1)", border: "1px solid rgba(239,68,68,0.25)" }}>
+              <span className="w-2 h-2 rounded-full bg-red-500 animate-pulse" />
+              <span className="text-sm font-bold text-red-400">Not in Stock Right Now</span>
+            </div>
+            <p className="text-sm mb-6" style={{ color: "rgba(255,255,255,0.35)" }}>
+              We currently don't have any {selectedBrand} devices in stock.<br />
+              Contact us on WhatsApp — we can source it for you!
+            </p>
+            <div className="flex items-center justify-center gap-3 flex-wrap">
+              <a
+                href={`https://wa.me/923465900627?text=Hi Shah Mobiles, do you have any ${selectedBrand} phones available? I'd like to check availability.`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-bold transition-all hover:scale-105"
+                style={{ background: "linear-gradient(135deg, #25D366, #128C7E)", color: "#fff" }}
+              >
+                Ask on WhatsApp
+              </a>
+              <button
+                onClick={clearAll}
+                className="px-5 py-2.5 rounded-xl text-sm font-bold transition-all hover:scale-105"
+                style={{ background: "linear-gradient(135deg, #C9A227, #F0D060)", color: "#0A0A0A" }}
+              >
+                Browse All Phones
+              </button>
+            </div>
+          </div>
+        ) : filtered.length > 0 ? (
           <motion.div
             variants={containerVariants}
             initial="hidden"
