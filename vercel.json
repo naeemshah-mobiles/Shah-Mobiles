@@ -1,8 +1,5 @@
 {
-  "buildCommand": "pnpm --filter shah-mobile build",
-  "outputDirectory": "dist",
+  "buildCommand": "pnpm --filter @workspace/shah-mobile build",
   "installCommand": "pnpm install --no-frozen-lockfile",
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
+  "outputDirectory": "artifacts/shah-mobiles/dist"
 }
