@@ -37,8 +37,16 @@ export default defineConfig({
   },
   root: path.resolve(import.meta.dirname),
   build: {
-    outDir: "dist",   // ✅ keep it simple
+    outDir: "dist",
     emptyOutDir: true,
+    chunkSizeWarningLimit: 1000, // ✅ warning threshold increased
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ["react", "react-dom"], // ✅ vendor chunk split
+        },
+      },
+    },
   },
   server: {
     port,
