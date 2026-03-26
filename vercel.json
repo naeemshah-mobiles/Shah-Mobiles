@@ -1,5 +1,19 @@
 {
+  "builds": [
+    {
+      "src": "artifacts/shah-mobile/package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "dist" }
+    }
+  ],
   "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+    {
+      "source": "/admin(.*)",
+      "destination": "/"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
   ]
 }
