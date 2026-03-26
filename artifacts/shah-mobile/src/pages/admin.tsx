@@ -477,7 +477,7 @@ export default function Admin() {
                       <input type="text" value={row.val}
                         onChange={e => handleExtraRowChange(idx, "val", e.target.value)}
                         placeholder="Value (e.g. Snapdragon 8 Gen 3)"
-                        className={inputCls + " flex-"2"} style={{ minWidth: 0 }} />
+                        className={inputCls + " flex-2"} style={{ minWidth: 0 }} />
                       <button type="button" onClick={() => removeExtraRow(idx)}
                         className="shrink-0 w-9 h-9 flex items-center justify-center rounded-lg transition-colors hover:bg-red-400/10 hover:text-red-400"
                         style={{ color: "rgba(255,255,255,0.3)", background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)" }}>
