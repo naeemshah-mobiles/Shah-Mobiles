@@ -30,7 +30,7 @@ export function Layout({ children }: LayoutProps) {
             {/* Logo */}
             <Link href="/" className="flex items-center gap-3 group shrink-0">
               <img
-                src="/images/shop-logo.jpg"
+                src="/images/logo.png"
                 alt="Shah Mobile"
                 className="w-10 h-10 rounded-xl object-cover border-2"
                 style={{ borderColor: "rgba(201,162,39,0.4)" }}
