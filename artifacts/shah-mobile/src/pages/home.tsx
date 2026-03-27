@@ -345,7 +345,7 @@ export default function Home() {
               <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border-2 shrink-0"
                 style={{ borderColor: "rgba(201,162,39,0.5)" }}
               >
-                <img src="/images/shop-logo.jpg" alt="Shah Mobile" className="w-full h-full object-cover" />
+                <img src="/images/logo.png" alt="Shah Mobile" className="w-full h-full object-cover" />
               </div>
               <div>
                 <div className="text-xs font-bold uppercase tracking-widest mb-1" style={{ color: "rgba(201,162,39,0.7)" }}>
