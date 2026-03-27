@@ -15,7 +15,7 @@ name = "web"
 paths = ["/"]
 
 [services.development]
-run = "pnpm --filter @workspace/shah-mobile run dev"
+run = "PORT=5000 pnpm --filter @workspace/shah-mobile run dev"
 
 [services.env]
 PORT = "5000"
@@ -23,7 +23,7 @@ BASE_PATH = "/"
 
 [services.production]
 build = ["pnpm", "--filter", "@workspace/shah-mobile", "run", "build"]
-publicDir = "artifacts/shah-mobile/dist/public"
+publicDir = "artifacts/shah-mobile/dist"
 serve = "static"
 
 [[services.production.rewrites]]
