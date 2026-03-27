@@ -293,7 +293,7 @@ export default function Home() {
                   style={{ borderColor: "rgba(201,162,39,0.3)", boxShadow: "0 32px 80px rgba(201,162,39,0.15)" }}
                 >
                   <img
-                    src="/images/shop-logo.jpg"
+                    src="/images/logo.png"
                     alt="Shah Mobile Store"
                     className="w-72 h-72 object-cover"
                     onError={(e) => {
