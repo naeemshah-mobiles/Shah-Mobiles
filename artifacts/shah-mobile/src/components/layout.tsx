@@ -167,7 +167,7 @@ export function Layout({ children }: LayoutProps) {
             <div>
               <div className="flex items-center gap-3 mb-4">
                 <img
-                  src="/images/shop-logo.jpg"
+                  src="/images/logo.png"
                   alt="Shah Mobile"
                   className="w-12 h-12 rounded-xl object-cover border-2"
                   style={{ borderColor: "rgba(201,162,39,0.4)" }}
