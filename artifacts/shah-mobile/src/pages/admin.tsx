@@ -10,7 +10,7 @@ import { Product, ProductCategory } from "@/data/products";
 type CategoryTab = "mobile" | "gadget" | "accessory" | "smart-device";
 
 const CATEGORY_LABELS: Record<CategoryTab, string> = {
-  mobile: "Mobile Phone",
+  mobile: "Mobile Phone and Others",
   gadget: "Gadget",
   accessory: "Accessory",
   "smart-device": "Smart Device",
