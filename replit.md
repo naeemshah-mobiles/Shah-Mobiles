@@ -22,9 +22,20 @@ pnpm workspace monorepo using TypeScript. Each package manages its own dependenc
 A professional, responsive e-commerce website for a mobile phone store.
 
 **Features:**
-- Homepage with hero section, search bar, and brand filter (All, Samsung, Oppo, Xiaomi, Realme, Vivo, iPhone)
-- Product grid with 8 sample products showing name, brand, RAM/storage, and PKR price
-- Product detail page with large image, specs table, and WhatsApp "Buy Now" button
+- Hero section with 2-column layout showing shop logo
+- Promotional banner highlighting installment plans
+- Shop By Category at the top (10 categories linking to WhatsApp)
+- Flash Sale section with live countdown timer
+- Under 30k Phones section (budget picks)
+- New Arrivals section
+- Best Gaming Devices section (12GB+ RAM flagships)
+- iPads & Tabs section with WhatsApp inquiry
+- Featured Phones (staff picks)
+- Easy Installment Plans section with 4 plan tiers
+- Payment Methods section (JazzCash, EasyPaisa, Bank, Card, Cash, Installment)
+- Why Us section and Customer Reviews
+- Floating WhatsApp button (bottom right, with pulse animation)
+- Product cards with white image background (clean product display, no bg)
 - Fully responsive (mobile + desktop)
 - Static frontend — no backend needed
 

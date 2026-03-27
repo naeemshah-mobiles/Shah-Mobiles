@@ -20,25 +20,45 @@ export function ProductCard({ product }: ProductCardProps) {
       className="group"
     >
       <Link href={`/product/${product.id}`} className="block h-full">
-        <div className="h-full bg-card rounded-2xl border border-card-border shadow-md hover:shadow-xl hover:border-primary/40 transition-all duration-300 flex flex-col overflow-hidden group-hover:-translate-y-1"
-          style={{ boxShadow: "0 2px 12px rgb(0 0 0 / 0.4)" }}
+        <div className="h-full rounded-2xl border shadow-md hover:shadow-2xl transition-all duration-300 flex flex-col overflow-hidden group-hover:-translate-y-1.5"
+          style={{
+            background: "#141414",
+            borderColor: "rgba(201,162,39,0.1)",
+            boxShadow: "0 2px 16px rgb(0 0 0 / 0.5)",
+          }}
+          onMouseEnter={(e) => {
+            (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(201,162,39,0.4)";
+            (e.currentTarget as HTMLDivElement).style.boxShadow = "0 8px 32px rgba(201,162,39,0.12), 0 2px 16px rgb(0 0 0 / 0.5)";
+          }}
+          onMouseLeave={(e) => {
+            (e.currentTarget as HTMLDivElement).style.borderColor = "rgba(201,162,39,0.1)";
+            (e.currentTarget as HTMLDivElement).style.boxShadow = "0 2px 16px rgb(0 0 0 / 0.5)";
+          }}
         >
 
-          {/* Image */}
-          <div className="relative bg-[#111] aspect-square flex items-center justify-center p-6 overflow-hidden">
+          {/* Image Area — white bg for clean product shot */}
+          <div className="relative aspect-square flex items-center justify-center overflow-hidden rounded-t-2xl"
+            style={{ background: "#ffffff" }}
+          >
             <img
               src={product.image}
               alt={product.name}
-              className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500 ease-out"
+              className="w-full h-full object-contain p-5 group-hover:scale-108 transition-transform duration-500 ease-out"
+              style={{ transform: "scale(1)", mixBlendMode: "multiply" }}
               loading="lazy"
+              onMouseEnter={(e) => { (e.target as HTMLImageElement).style.transform = "scale(1.08)"; }}
+              onMouseLeave={(e) => { (e.target as HTMLImageElement).style.transform = "scale(1)"; }}
               onError={(e) => {
-                (e.target as HTMLImageElement).src =
-                  `https://via.placeholder.com/400x400/1a1a1a/C9A227?text=${encodeURIComponent(product.brand)}`;
+                const img = e.target as HTMLImageElement;
+                img.style.mixBlendMode = "normal";
+                img.src = `https://placehold.co/400x400/1a1a1a/C9A227?text=${encodeURIComponent(product.brand)}`;
               }}
             />
 
             {/* Brand pill */}
-            <span className="absolute top-3 left-3 px-2.5 py-0.5 rounded-full bg-black/70 border border-white/10 text-[11px] font-semibold text-white/80 backdrop-blur-sm">
+            <span className="absolute top-3 left-3 px-2.5 py-0.5 rounded-full text-[11px] font-bold backdrop-blur-sm"
+              style={{ background: "rgba(0,0,0,0.65)", color: "rgba(255,255,255,0.9)", border: "1px solid rgba(255,255,255,0.15)" }}
+            >
               {product.brand}
             </span>
 
@@ -58,7 +78,7 @@ export function ProductCard({ product }: ProductCardProps) {
               </span>
             )}
 
-            {/* New badge (only if not flash sale and not pre-book) */}
+            {/* New badge */}
             {product.isNew && !product.isFlashSale && !product.isPreBook && (
               <span className="absolute top-3 right-3 flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-600 text-white text-[10px] font-bold uppercase tracking-wide">
                 <Sparkles className="w-3 h-3" /> New
@@ -75,21 +95,19 @@ export function ProductCard({ product }: ProductCardProps) {
 
           {/* Info */}
           <div className="flex-1 flex flex-col p-4">
-            <h3 className="font-semibold text-[14px] text-foreground line-clamp-2 leading-snug mb-1.5">
+            <h3 className="font-bold text-[13.5px] text-white line-clamp-2 leading-snug mb-1.5">
               {product.name}
             </h3>
-            <p className="text-xs text-muted-foreground mb-3">
-              {product.specs.ram} RAM · {product.specs.storage}
+            <p className="text-xs mb-3" style={{ color: "rgba(255,255,255,0.4)" }}>
+              {product.specs.ram} RAM · {product.specs.storage} · {product.specs.battery}
             </p>
 
-            {/* Low stock warning */}
             {isLowStock && (
               <p className="text-[11px] font-bold text-red-400 mb-2 flex items-center gap-1">
                 🔴 Only {product.stockLeft} left!
               </p>
             )}
 
-            {/* PTA badge */}
             {product.pta && (
               <span className={`text-[10px] font-semibold px-2 py-0.5 rounded-full w-fit mb-3 ${
                 product.pta === "approved"
@@ -103,15 +121,17 @@ export function ProductCard({ product }: ProductCardProps) {
             <div className="mt-auto flex items-end justify-between gap-2">
               <div>
                 {hasDiscount && product.originalPrice && (
-                  <p className="text-[11px] text-muted-foreground line-through mb-0.5">
+                  <p className="text-[11px] line-through mb-0.5" style={{ color: "rgba(255,255,255,0.3)" }}>
                     {formatPKR(product.originalPrice)}
                   </p>
                 )}
-                <p className="font-bold text-primary text-lg leading-none">
+                <p className="font-black text-lg leading-none" style={{ color: "#C9A227" }}>
                   {formatPKR(product.price)}
                 </p>
               </div>
-              <span className="text-xs font-bold text-background bg-primary px-3 py-1.5 rounded-lg group-hover:bg-primary/80 transition-colors duration-200 whitespace-nowrap">
+              <span className="text-xs font-black text-black px-3 py-1.5 rounded-xl transition-all duration-200 whitespace-nowrap"
+                style={{ background: "linear-gradient(135deg, #C9A227, #F0D060)" }}
+              >
                 View →
               </span>
             </div>
