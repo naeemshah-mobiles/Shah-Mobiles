@@ -12,6 +12,8 @@ import Admin from "@/pages/admin";
 import Accessories from "@/pages/accessories";
 import Gadgets from "@/pages/gadgets";
 import SmartDevices from "@/pages/smart-devices";
+import UsedPhones from "@/pages/used-phones";
+import TabsIpads from "@/pages/tabs-ipads";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient({
@@ -31,6 +33,8 @@ function Router() {
       <Route path="/accessories" component={Accessories} />
       <Route path="/gadgets" component={Gadgets} />
       <Route path="/smart-devices" component={SmartDevices} />
+      <Route path="/used-phones" component={UsedPhones} />
+      <Route path="/tabs-ipads" component={TabsIpads} />
       <Route path="/about" component={About} />
       <Route path="/contact" component={Contact} />
       <Route path="/product/:id" component={ProductDetail} />

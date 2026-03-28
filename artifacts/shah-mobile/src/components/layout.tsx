@@ -10,6 +10,11 @@ interface LayoutProps {
 const navLinksClean = [
   { href: "/", label: "Home" },
   { href: "/store", label: "Mobiles" },
+  { href: "/used-phones", label: "Used Phones" },
+  { href: "/tabs-ipads", label: "Tabs & iPads" },
+  { href: "/accessories", label: "Accessories" },
+  { href: "/gadgets", label: "Gadgets" },
+  { href: "/smart-devices", label: "Smart Devices" },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -55,6 +60,8 @@ export function Layout({ children }: LayoutProps) {
               {[
                 { href: "/", label: "Home" },
                 { href: "/store", label: "Mobiles" },
+                { href: "/used-phones", label: "Used Phones" },
+                { href: "/tabs-ipads", label: "Tabs & iPads" },
                 { href: "/accessories", label: "Accessories" },
                 { href: "/gadgets", label: "Gadgets" },
                 { href: "/smart-devices", label: "Smart Devices" },
@@ -114,6 +121,8 @@ export function Layout({ children }: LayoutProps) {
               {[
                 { href: "/", label: "Home" },
                 { href: "/store", label: "Mobiles" },
+                { href: "/used-phones", label: "Used Phones" },
+                { href: "/tabs-ipads", label: "Tabs & iPads" },
                 { href: "/accessories", label: "Accessories" },
                 { href: "/gadgets", label: "Gadgets" },
                 { href: "/smart-devices", label: "Smart Devices" },
@@ -205,7 +214,7 @@ export function Layout({ children }: LayoutProps) {
                   </li>
                 ))}
                 <li>
-                  <Link href="/store" className="text-white/40 hover:text-primary transition-colors text-sm">
+                  <Link href="/store?deals=1" className="text-white/40 hover:text-primary transition-colors text-sm">
                     Deals & Offers
                   </Link>
                 </li>

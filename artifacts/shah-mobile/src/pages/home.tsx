@@ -98,8 +98,20 @@ const installmentPlans = [
 ];
 
 const paymentMethods = [
-  { name: "JazzCash", icon: "🟠", desc: "Mobile wallet transfer" },
-  { name: "EasyPaisa", icon: "🟢", desc: "Mobile wallet transfer" },
+  {
+    name: "JazzCash",
+    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/a/a5/JazzCash_logo.svg/200px-JazzCash_logo.svg.png",
+    logoBg: "#E8340A",
+    icon: "🟠",
+    desc: "Mobile wallet transfer",
+  },
+  {
+    name: "EasyPaisa",
+    logo: "https://upload.wikimedia.org/wikipedia/en/thumb/8/86/Easypaisa_logo.svg/200px-Easypaisa_logo.svg.png",
+    logoBg: "#009A44",
+    icon: "🟢",
+    desc: "Mobile wallet transfer",
+  },
   { name: "Bank Transfer", icon: "🏦", desc: "All major banks accepted" },
   { name: "Visa / Mastercard", icon: "💳", desc: "Debit & credit cards" },
   { name: "Cash on Visit", icon: "💵", desc: "Pay in store, no fees" },
@@ -810,7 +822,26 @@ export default function Home() {
                 className="flex flex-col items-center text-center p-5 rounded-2xl"
                 style={{ background: "rgba(255,255,255,0.03)", border: "1px solid rgba(255,255,255,0.07)" }}
               >
-                <span className="text-3xl mb-3">{method.icon}</span>
+                {(method as any).logo ? (
+                  <div
+                    className="w-14 h-10 rounded-lg flex items-center justify-center mb-3 overflow-hidden px-2"
+                    style={{ background: (method as any).logoBg }}
+                  >
+                    <img
+                      src={(method as any).logo}
+                      alt={method.name}
+                      className="w-full h-full object-contain"
+                      onError={(e) => {
+                        const img = e.target as HTMLImageElement;
+                        img.style.display = "none";
+                        const parent = img.parentElement!;
+                        parent.innerHTML = `<span style="color:#fff;font-weight:900;font-size:11px;text-align:center;line-height:1.2">${method.name}</span>`;
+                      }}
+                    />
+                  </div>
+                ) : (
+                  <span className="text-3xl mb-3">{method.icon}</span>
+                )}
                 <p className="font-bold text-sm text-white mb-1">{method.name}</p>
                 <p className="text-[11px]" style={{ color: "rgba(255,255,255,0.35)" }}>{method.desc}</p>
               </motion.div>

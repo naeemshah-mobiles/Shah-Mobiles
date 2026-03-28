@@ -15,6 +15,7 @@ export interface Product {
   brand: string;
   price: number;
   image: string;
+  images?: string[];
   specs: ProductSpecs;
   extraSpecs?: Record<string, string>;
   category?: ProductCategory;
@@ -23,6 +24,7 @@ export interface Product {
   isFlashSale?: boolean;
   isNew?: boolean;
   isPreBook?: boolean;
+  isUsed?: boolean;
   stockLeft?: number;
   pta?: "approved" | "non-pta" | "grey";
   modelNumber?: string;
