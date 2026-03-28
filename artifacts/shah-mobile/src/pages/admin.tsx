@@ -2,18 +2,19 @@ import { useState, useRef } from "react";
 import {
   Trash2, Plus, LogOut, ShieldCheck, Eye, EyeOff, Package,
   AlertTriangle, Upload, X, ImageIcon, BookOpen, Smartphone,
-  Cpu, Zap, Watch, Wifi, Pencil
+  Cpu, Zap, Watch, Wifi, Pencil, Tablet
 } from "lucide-react";
 import { useAdminStore } from "@/hooks/use-admin-store";
 import { Product, ProductCategory } from "@/data/products";
 
-type CategoryTab = "mobile" | "gadget" | "accessory" | "smart-device";
+type CategoryTab = "mobile" | "gadget" | "accessory" | "smart-device" | "tablet";
 
 const CATEGORY_LABELS: Record<CategoryTab, string> = {
   mobile: "Mobile Phone and Others",
   gadget: "Gadget",
   accessory: "Accessory",
   "smart-device": "Smart Device",
+  tablet: "Tabs & iPads",
 };
 
 const CATEGORY_ICONS: Record<CategoryTab, React.ReactNode> = {
@@ -21,6 +22,7 @@ const CATEGORY_ICONS: Record<CategoryTab, React.ReactNode> = {
   gadget: <Cpu className="w-4 h-4" />,
   accessory: <Zap className="w-4 h-4" />,
   "smart-device": <Watch className="w-4 h-4" />,
+  tablet: <Tablet className="w-4 h-4" />,
 };
 
 const MOBILE_SPECS = [
@@ -60,10 +62,18 @@ const SMART_DEVICE_EXTRA_DEFAULTS = [
   { key: "Power", val: "" },
 ];
 
+const TABLET_EXTRA_DEFAULTS = [
+  { key: "Display", val: "" },
+  { key: "Chip / Processor", val: "" },
+  { key: "Connectivity", val: "" },
+  { key: "Storage", val: "" },
+];
+
 function defaultExtras(cat: CategoryTab) {
   if (cat === "mobile") return [...MOBILE_EXTRA_DEFAULTS];
   if (cat === "gadget") return [...GADGET_EXTRA_DEFAULTS];
   if (cat === "accessory") return [...ACCESSORY_EXTRA_DEFAULTS];
+  if (cat === "tablet") return [...TABLET_EXTRA_DEFAULTS];
   return [...SMART_DEVICE_EXTRA_DEFAULTS];
 }
 
@@ -374,7 +384,7 @@ export default function Admin() {
 
             {/* Category Selector */}
             <div className="flex gap-2 mb-6 flex-wrap">
-              {(["mobile", "gadget", "accessory", "smart-device"] as CategoryTab[]).map(cat => (
+              {(["mobile", "tablet", "gadget", "accessory", "smart-device"] as CategoryTab[]).map(cat => (
                 <button key={cat} onClick={() => switchCategory(cat)}
                   className="flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-semibold transition-all"
                   style={category === cat
@@ -406,6 +416,7 @@ export default function Admin() {
                       category === "mobile" ? "e.g. Samsung Galaxy A55 8GB+256GB" :
                       category === "gadget" ? "e.g. Xiaomi Smart Band 9 Pro" :
                       category === "accessory" ? "e.g. Anker 65W GaN Charger" :
+                      category === "tablet" ? "e.g. Apple iPad Air M2 256GB" :
                       "e.g. Amazon Echo Dot (5th Gen)"
                     }
                     className={inputCls} />
@@ -646,6 +657,7 @@ export default function Admin() {
                 {([
                   { val: "all", label: "All" },
                   { val: "mobile", label: "Mobiles" },
+                  { val: "tablet", label: "Tabs & iPads" },
                   { val: "gadget", label: "Gadgets" },
                   { val: "accessory", label: "Accessories" },
                   { val: "smart-device", label: "Smart Devices" },

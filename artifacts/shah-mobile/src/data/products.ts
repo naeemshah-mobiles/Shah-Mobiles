@@ -7,7 +7,7 @@ export interface ProductSpecs {
   os: string;
 }
 
-export type ProductCategory = "mobile" | "accessory" | "gadget" | "smart-device";
+export type ProductCategory = "mobile" | "accessory" | "gadget" | "smart-device" | "tablet";
 
 export interface Product {
   id: string;
